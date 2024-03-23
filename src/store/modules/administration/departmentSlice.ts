@@ -1,5 +1,6 @@
-import {DepartmentInterface, Item, Paging} from "../../../interfaces";
+import {DepartmentInterface, Paging} from "../../../interfaces";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {Utilities} from "../../../util/utilities.ts";
 
 
 const initialState: DepartmentInterface = {
@@ -28,16 +29,11 @@ export const departmentSlice = createSlice({
     reducers: {
         setPageResult: (state, {payload}: PayloadAction<Paging<DepartmentInterface>>) => {
             state.page = payload;
-            const items: Item[] = [];
-            payload.content.forEach((itemContent) => {
-               const item: Item = {
-                   itemCode: itemContent.depCodigo,
-                   itemPrimaryText: itemContent.depCodigo,
-                   itemSecondaryText: itemContent.depNombre
-               }
-               items.push(item);
+            state.items = Utilities.generateItems(payload.content, {
+                itemCodeKey: 'depCodigo',
+                itemPrimaryTextKey: 'depNombre',
+                itemSecondaryTextKey: 'depCodigo'
             });
-            state.items = items;
         },
         cleanData: (state) => {
             state.depCodigo = 0;

@@ -17,7 +17,8 @@ export const  mainTheme = createTheme({
             styleOverrides: {
                 paper: {
                     backgroundColor: '#001b40',
-                    color: 'white'
+                    color: 'white',
+                    overflow: 'hidden'
                 }
             }
         }
