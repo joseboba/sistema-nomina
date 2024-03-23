@@ -1,5 +1,5 @@
 import {lazy} from "react";
-import {ADMIN_BASE_PATH} from "../modules/administration/routes/routesAdministration.ts";
+import {ADMIN_BASE_PATH} from "../util";
 
 const LazyAdministratorModule = lazy(() => import('../modules/administration/routes/AdministrationRoutes.tsx'))
 

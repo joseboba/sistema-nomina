@@ -1,10 +1,18 @@
 import {SideNavType} from "../interfaces";
-import {routesAdministration} from "../modules/administration/routes/routesAdministration.ts";
+import {Badge} from "@mui/icons-material";
 
+export const ADMIN_BASE_PATH = '/admin';
 
 export const NAVBAR_ROUTES: SideNavType = [
     {
         moduleName: 'Catalogos',
-        items: routesAdministration
+        items: [
+            {
+                path: 'department',
+                to: `${ADMIN_BASE_PATH}/department`,
+                name: "Departamento",
+                NavIcon: Badge
+            },
+        ]
     }
 ];

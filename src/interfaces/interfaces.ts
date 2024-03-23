@@ -11,9 +11,9 @@ export interface SideNavGroupInterface {
 export interface SidNavItemInterface {
     path: string;
     to: string;
-    name: string;
-    Component: () => ReactElement | Element;
-    NavIcon: SvgIconComponent;
+    name?: string;
+    Component?: () => ReactElement | Element;
+    NavIcon?: SvgIconComponent;
 }
 
 export interface Paging<T> {
