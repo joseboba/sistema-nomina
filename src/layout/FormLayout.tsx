@@ -3,13 +3,14 @@ import {Add} from "@mui/icons-material";
 import {TitleComponent} from "../modules/administration/components";
 import {Form, Formik, FormikConfig, FormikValues} from "formik";
 import {ReactElement} from "react";
+import {FormikHelpers} from "formik/dist/types";
 
 interface Props {
     update?: boolean;
     children: ReactElement | ReactElement[];
     initialValues: FormikValues;
-    validationSchema: FormikConfig<FormikValues>;
-    onSubmit: () => void;
+    validationSchema: any | (() => any);
+    onSubmit: (values: FormikValues, formikHelpers: FormikHelpers<FormikValues>) => void;
     onClean: () => void;
 }
 

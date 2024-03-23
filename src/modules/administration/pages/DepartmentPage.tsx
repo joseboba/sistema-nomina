@@ -1,15 +1,15 @@
 import {Grid} from "@mui/material";
 import {ListComponent, TitleComponent} from "../components";
-import {EmployeeForm} from "../forms/EmployeeForm.tsx";
+import {DepartmentForm} from "../forms/DepartmentForm.tsx";
 import {useDepartmentStore} from "../../../hooks";
 
 
-export const EmployeePage = () => {
+export const DepartmentPage = () => {
     const {departmentValues, findAll, findById, remove} = useDepartmentStore();
 
     return (
         <>
-            <TitleComponent title={'Empleados'}/>
+            <TitleComponent title={'Departamentos'}/>
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <ListComponent
@@ -22,7 +22,7 @@ export const EmployeePage = () => {
                     />
                 </Grid>
                 <Grid item xs={9}>
-                    <EmployeeForm/>
+                    <DepartmentForm/>
                 </Grid>
             </Grid>
         </>

@@ -1,6 +1,5 @@
-import {DepartmentInterface, Paging} from "../../../interfaces";
+import {DepartmentInterface, Item, Paging} from "../../../interfaces";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Item} from "../../../modules/administration/components";
 
 
 const initialState: DepartmentInterface = {

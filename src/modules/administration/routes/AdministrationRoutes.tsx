@@ -1,5 +1,5 @@
 import {NavLink, Route, Routes} from "react-router-dom";
-import {routes} from "./routes.ts";
+import {routesAdministration} from "./routesAdministration.ts";
 import {Box} from "@mui/material";
 
 export const AdministrationRoutes = () => {
@@ -9,7 +9,7 @@ export const AdministrationRoutes = () => {
 		}}>
 			<Routes>
 				{
-					routes.map(({Component, path}) => (
+					routesAdministration.map(({Component, path}) => (
 						<Route
 							key={path}
 							path={path}

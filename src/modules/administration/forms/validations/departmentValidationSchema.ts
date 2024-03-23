@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const employeeValidationSchema = Yup.object({
+export const departmentValidationSchema = Yup.object({
     depNombre: Yup
         .string()
         .max(50, 'El nombre puede ser de 50 cáracteres máximo')
