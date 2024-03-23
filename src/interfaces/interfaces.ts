@@ -39,6 +39,21 @@ export interface DepartmentInterface {
     }
 }
 
+export interface DiscountTypeInterface {
+    tdeCodigo: number | null;
+    tdeNombre: string;
+    tdeDescripcion: string;
+    tdeEstado: boolean;
+    tdeMonto: number;
+    tdePorcentaje: number;
+    page: Paging<DiscountTypeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
 export interface Item {
     itemCode: string | number;
     itemPrimaryText: string;
