@@ -87,6 +87,7 @@ export const useBonificationStore = () => {
                 icon: 'success'
             });
             await findAll(search, page);
+            cleanForm();
         } catch (e) {
             console.log(e);
         }

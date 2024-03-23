@@ -18,4 +18,5 @@ export const bonificationValidationSchema = Yup.object({
     bonEstado: Yup
         .string()
         .length(1,'El estado solo puede tener un valor de A o N')
+        .required('El estado es requerido')
 });

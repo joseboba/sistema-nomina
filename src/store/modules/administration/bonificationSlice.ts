@@ -1,5 +1,6 @@
 import {Paging, Item, BonificationInterface} from "../../../interfaces";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {Utilities} from "../../../util/utilities.ts";
 
 
 const initialState: BonificationInterface  = {
@@ -31,16 +32,11 @@ export const bonificationSlice = createSlice({
     reducers: {
         setPageResultBonification: (state, {payload}: PayloadAction<Paging<BonificationInterface>>) => {
             state.page = payload;
-            const items: Item[] = [];
-            payload.content.forEach((itemContent) => {
-               const item: Item = {
-                   itemCode: itemContent.bonCodigo!,
-                   itemPrimaryText: itemContent.bonCodigo?.toString()!,
-                   itemSecondaryText: itemContent.bonNombre
-               }
-               items.push(item);
+            state.items = Utilities.generateItems(payload.content, {
+                itemCodeKey: 'bonCodigo',
+                itemPrimaryTextKey: 'bonNombre',
+                itemSecondaryTextKey: 'bonCodigo'
             });
-            state.items = items;
         },
         cleanDataBonification: (state) => {
             state.bonCodigo = 0;
