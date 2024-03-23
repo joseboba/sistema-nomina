@@ -4,7 +4,7 @@ import {Grid, TextField} from "@mui/material";
 interface Props {
 	label: string;
 	name: string;
-	type?: 'text' | 'email' | 'password';
+	type?: 'text' | 'email' | 'password' | 'number';
 	placeholder?: string;
 	xs?: number;
 	[x: string]: any;
