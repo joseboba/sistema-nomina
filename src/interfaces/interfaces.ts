@@ -9,8 +9,8 @@ export interface SideNavGroupInterface {
 }
 
 export interface SidNavItemInterface {
-    path: string;
-    to: string;
+    path?: string;
+    to?: string;
     name?: string;
     Component?: () => ReactElement | Element;
     NavIcon?: SvgIconComponent;

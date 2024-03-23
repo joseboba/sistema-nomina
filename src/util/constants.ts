@@ -8,7 +8,6 @@ export const NAVBAR_ROUTES: SideNavType = [
         moduleName: 'Catalogos',
         items: [
             {
-                path: 'department',
                 to: `${ADMIN_BASE_PATH}/department`,
                 name: "Departamento",
                 NavIcon: Badge
