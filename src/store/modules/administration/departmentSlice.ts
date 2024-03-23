@@ -1,6 +1,5 @@
-import {DepartmentInterface, Paging} from "../../../interfaces";
+import {DepartmentInterface, Paging, Item} from "../../../interfaces";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Item} from "../../../modules/administration/components";
 
 
 const initialState: DepartmentInterface = {
@@ -32,8 +31,8 @@ export const departmentSlice = createSlice({
             const items: Item[] = [];
             payload.content.forEach((itemContent) => {
                const item: Item = {
-                   itemCode: itemContent.depCodigo,
-                   itemPrimaryText: itemContent.depCodigo,
+                   itemCode: itemContent.depCodigo!,
+                   itemPrimaryText: itemContent.depCodigo?.toString()!,
                    itemSecondaryText: itemContent.depNombre
                }
                items.push(item);

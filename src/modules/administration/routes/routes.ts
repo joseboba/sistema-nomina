@@ -1,4 +1,4 @@
-import {LogPage, EmployeePage} from "../pages";
+import {LogPage, EmployeePage, BonificacionPage} from "../pages";
 
 
 export const routes = [
@@ -12,6 +12,12 @@ export const routes = [
         path: 'log',
         to: 'log',
         Component: LogPage,
+        name: 'LogPage'
+    },
+    {
+        path: 'bonification',
+        to: 'bonification',
+        Component: BonificacionPage,
         name: 'LogPage'
     }
 ];
