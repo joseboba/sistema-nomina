@@ -1,4 +1,5 @@
 import {SvgIconComponent} from "@mui/icons-material";
+import {ReactElement} from "react";
 
 export type SideNavType = SideNavGroupInterface[]
 
@@ -8,8 +9,10 @@ export interface SideNavGroupInterface {
 }
 
 export interface SidNavItemInterface {
+    path: string;
     to: string;
     name: string;
+    Component: () => ReactElement | Element;
     NavIcon: SvgIconComponent;
 }
 

@@ -1,1 +1,1 @@
-export * from './sidenav';
+export * from './sidenavSlice.ts';

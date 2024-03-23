@@ -12,7 +12,36 @@
   display: flex !important;
   padding: 1rem !important;
   background-color: #689f38 !important;
+  box-shadow: 0 5px 16px -6px #000;
   .MuiSvgIcon-root {
     color: white !important;
   }
 }
+
+.btn-menu-action {
+  position: absolute;
+  padding: 0;
+  z-index: 99999;
+  top: 1rem;
+
+  button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #001b40;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 100px;
+    box-shadow: 0 5px 16px -6px #000;
+
+    svg {
+      color: white;
+    }
+  }
+
+  &-rotate {
+    transform: rotate(180deg);
+  }
+}
+

@@ -1,10 +1,10 @@
 import {FormikValues} from "formik";
 import {FormLayout} from "../../../layout/FormLayout.tsx";
 import {CustomInputText} from "../../../components/form";
-import {employeeValidationSchema} from "./validations/employeeValidationSchema.ts";
+import {departmentValidationSchema} from "./validations/departmentValidationSchema.ts";
 import {useDepartmentStore} from "../../../hooks";
 
-export const EmployeeForm = () => {
+export const DepartmentForm = () => {
 
 
     const {
@@ -20,16 +20,16 @@ export const EmployeeForm = () => {
     }
 
     const onSubmit = async (values: FormikValues) => {
-        saveOrUpdate({...values, depCodigo});
+        await saveOrUpdate({...values, depCodigo});
     }
 
 
     return (
         <FormLayout
-            update={depCodigo}
+            update={!!depCodigo}
             onSubmit={onSubmit}
             initialValues={{depNombre, depDescripcion}}
-            validationSchema={employeeValidationSchema}
+            validationSchema={departmentValidationSchema}
             onClean={onClean}
         >
             <CustomInputText label={'Nombre'} name={'depNombre'}/>
