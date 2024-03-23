@@ -1,7 +1,5 @@
 import {Item} from "../interfaces";
 
-
-
 interface GenerateItemsProperties {
     itemCodeKey: string;
     itemPrimaryTextKey: string;
