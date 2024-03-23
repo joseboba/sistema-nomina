@@ -1,1 +1,2 @@
-export * from './pages/index.ts';
+export * from './pages';
+export * from './routes'

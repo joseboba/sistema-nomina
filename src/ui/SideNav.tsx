@@ -1,4 +1,4 @@
-import {NAVBAR_ROUTES} from "../util/constants.ts";
+import {NAVBAR_ROUTES} from "../util";
 import {SideNavGroup} from "./SideNavGroup.tsx";
 
 export const SideNav = () => {

@@ -1,5 +1,5 @@
 import {SvgIconComponent} from "@mui/icons-material";
-import {ReactElement} from "react";
+import {LazyExoticComponent, ReactElement} from "react";
 
 export type SideNavType = SideNavGroupInterface[]
 
@@ -9,11 +9,20 @@ export interface SideNavGroupInterface {
 }
 
 export interface SidNavItemInterface {
-    path: string;
     to: string;
     name: string;
-    Component: () => ReactElement | Element;
     NavIcon: SvgIconComponent;
+}
+
+export interface ModuleRoute {
+    path: string;
+    Component: () => ReactElement | Element;
+}
+
+export interface Module {
+    to: string;
+    path: string;
+    Module: LazyExoticComponent<() => ReactElement>
 }
 
 export interface Paging<T> {

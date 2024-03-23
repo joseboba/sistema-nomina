@@ -5,11 +5,11 @@ export const AppRouter = () => {
     return (
         <Routes>
             {
-                routes.map(({path, Component}) => (
+                routes.map(({path, Module}) => (
                     <Route
                         key={path}
                         path={path}
-                        element={<Component/>}
+                        element={<Module/>}
                     />
                 ))
             }
