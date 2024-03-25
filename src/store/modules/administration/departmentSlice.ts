@@ -27,7 +27,7 @@ export const departmentSlice = createSlice({
     name: 'department',
     initialState,
     reducers: {
-        setPageResult: (state, {payload}: PayloadAction<Paging<DepartmentInterface>>) => {
+        setDepartmentPageResult: (state, {payload}: PayloadAction<Paging<DepartmentInterface>>) => {
             state.page = payload;
             state.items = Utilities.generateItems(payload.content, {
                 itemCodeKey: 'depCodigo',
@@ -35,7 +35,7 @@ export const departmentSlice = createSlice({
                 itemSecondaryTextKey: 'depCodigo'
             });
         },
-        cleanData: (state) => {
+        cleanDepartmentData: (state) => {
             state.depCodigo = 0;
             state.depNombre = '';
             state.depDescripcion = '';
@@ -45,7 +45,7 @@ export const departmentSlice = createSlice({
             state.depNombre = payload.depNombre;
             state.depDescripcion = payload.depDescripcion;
         },
-        setParams: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
+        setDepartmentParams: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
             state.params.search = payload.search;
             state.params.page = payload.page;
         }
@@ -54,10 +54,10 @@ export const departmentSlice = createSlice({
 
 
 export const {
-    setPageResult,
-    cleanData,
+    setDepartmentPageResult,
+    cleanDepartmentData,
     setDepartment,
-    setParams
+    setDepartmentParams
 } = departmentSlice.actions;
 
 

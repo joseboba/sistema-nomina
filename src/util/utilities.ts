@@ -1,4 +1,5 @@
 import {Item} from "../interfaces";
+import Swal from "sweetalert2";
 
 interface GenerateItemsProperties {
     itemCodeKey: string;
@@ -19,6 +20,33 @@ export class Utilities {
             items.push(item);
         });
         return items;
+    }
+
+    static successAlarm = async (title: string) => {
+        await Swal.fire({
+            title,
+            icon: 'success'
+        })
+    }
+
+    static errorAlarm = async (title: string) => {
+        await Swal.fire({
+            title,
+            icon: 'success'
+        })
+    }
+
+    static warningAlarm = async (title: string): Promise<boolean> => {
+        const result = await Swal.fire({
+            title,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#689f38',
+            confirmButtonText: 'Confirmar',
+            cancelButtonColor: "#FF0000FF",
+            cancelButtonText: 'Cancelar',
+        });
+        return result.isDismissed;
     }
 
 }

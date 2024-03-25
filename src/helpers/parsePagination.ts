@@ -1,10 +1,10 @@
 import {Paging} from "../interfaces";
-import {AxiosResponseHeaders, RawAxiosResponseHeaders} from "axios";
+import axios, {AxiosHeaders, AxiosResponseHeaders, RawAxiosResponseHeaders} from "axios";
 
 interface lowerCaseKeys {
     [x:string]: number | string | [] | boolean | null;
 }
-export const parsePagination = <T>(headers: RawAxiosResponseHeaders | AxiosResponseHeaders): Paging<T> => {
+export const parsePagination = <T>(headers: axios.RawAxiosResponseHeaders | (axios.RawAxiosResponseHeaders & AxiosHeaders)): Paging<T> => {
     const body = JSON.parse(headers['x-pagination']);
     const lowercaseKeys: lowerCaseKeys = {};
     for (const key in body) {

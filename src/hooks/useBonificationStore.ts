@@ -4,8 +4,13 @@ import {useEffect} from "react";
 import {getEnvVariables, parsePagination} from "../helpers";
 import {payrollApi} from "../api";
 import {BonificationInterface} from "../interfaces";
-import {cleanDataBonification, setBonification , setPageResultBonification, setParamsBonification} from "../store/modules/administration";
-import Swal from 'sweetalert2';
+import {
+    cleanDataBonification,
+    setBonification,
+    setPageResultBonification,
+    setParamsBonification
+} from "../store/modules/administration";
+import {Utilities} from "../util";
 
 const {VITE_BONIFICACION_URI} = getEnvVariables();
 
@@ -28,7 +33,7 @@ export const useBonificationStore = () => {
             response.content = data;
             dispatch(setPageResultBonification(response));
         } catch (e) {
-            console.log(e);
+            await Utilities.errorAlarm(e);
         }
     }
 
@@ -37,59 +42,42 @@ export const useBonificationStore = () => {
             const {data} = await payrollApi.get(`${VITE_BONIFICACION_URI}/${code}`);
             dispatch(setBonification(data));
         } catch (e) {
-            console.log(e);
+            await Utilities.errorAlarm(e);
         }
     }
 
     const saveOrUpdate = async (bonification: BonificationInterface) => {
         try {
-            const { search, page } = bonificationValues.params;
+            const {search, page} = bonificationValues.params;
             if (bonification.bonCodigo) {
                 await payrollApi.put(`${VITE_BONIFICACION_URI}`, bonification);
-                await Swal.fire({
-                    title: 'Registro actualizado',
-                    icon: 'success'
-                })
+                await Utilities.successAlarm('Registro actualizado');
                 await findAll(search, page);
                 return;
             }
 
             const {data} = await payrollApi.post(`${VITE_BONIFICACION_URI}`, bonification);
-            await Swal.fire({
-                title: 'Registro guardado',
-                icon: 'success'
-            })
+            await Utilities.successAlarm('Registro guardado');
             await findAll(search, page);
             dispatch(setBonification(data));
         } catch (e) {
-            console.log(e);
+            await Utilities.errorAlarm(e);
         }
     }
 
     const remove = async (code: number) => {
         try {
-            const { search, page } = bonificationValues.params;
-            const result = await Swal.fire({
-                title: '¿Desea eliminar el registro?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#689f38',
-                confirmButtonText: 'Confirmar',
-                cancelButtonColor: "#FF0000FF",
-                cancelButtonText: 'Cancelar',
-            });
-            if (result.isDismissed) {
+            const {search, page} = bonificationValues.params;
+            const result = await Utilities.warningAlarm('¿Desea eliminar el registro?');
+            if (result) {
                 return;
             }
             await payrollApi.delete(`${VITE_BONIFICACION_URI}/${code}`);
-            await Swal.fire({
-                title: 'Registro eliminado',
-                icon: 'success'
-            });
+            await Utilities.successAlarm('Registro eliminado');
             await findAll(search, page);
             cleanForm();
         } catch (e) {
-            console.log(e);
+            await Utilities.errorAlarm(e);
         }
     }
 
