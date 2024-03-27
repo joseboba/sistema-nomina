@@ -5,4 +5,28 @@
   overflow-y: auto;
 }
 
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 
+  .form-status-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    min-width: 0;
+
+    &.active {
+        background-color: #689f38;
+    }
+
+    &.inactive {
+      background-color: red;
+    }
+
+    .MuiSvgIcon-root {
+      color: white !important;
+    }
+  }
+
+}
