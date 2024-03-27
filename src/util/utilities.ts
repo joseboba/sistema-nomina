@@ -22,17 +22,19 @@ export class Utilities {
         return items;
     }
 
-    static successAlarm = async (title: string) => {
+    static successAlarm = async (text: string) => {
         await Swal.fire({
-            title,
+            title: 'Éxito',
+            text,
             icon: 'success'
         })
     }
 
-    static errorAlarm = async (title: string) => {
+    static errorAlarm = async (text: string) => {
         await Swal.fire({
-            title,
-            icon: 'success'
+            title: 'Error',
+            text,
+            icon: 'error'
         })
     }
 
