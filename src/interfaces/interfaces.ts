@@ -35,12 +35,25 @@ export interface Paging<T> {
     pageSize: number;
 }
 
-
 export interface DepartmentInterface {
     depCodigo: number | null;
     depNombre: string;
     depDescripcion: string;
     page: Paging<DepartmentInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface PositionInterface {
+    pueCodigo: number | null;
+    depCodigo: number | null;
+    pueNombre: string;
+    pueDescripcion: string;
+    pueEstado: number;
+    page: Paging<PositionInterface> | null;
     items: Item[];
     params: {
         search: string;

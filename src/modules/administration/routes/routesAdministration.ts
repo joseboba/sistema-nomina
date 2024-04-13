@@ -1,5 +1,5 @@
 import {ModuleRoute} from "../../../interfaces";
-import {BonificacionPage, DepartmentPage} from "../pages";
+import {BonificacionPage, DepartmentPage, PositionPage} from "../pages";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -8,7 +8,11 @@ export const routesAdministration: ModuleRoute[] = [
         Component: DepartmentPage
     },
     {
+        path: 'position',
+        Component: PositionPage
+    },
+    {
         path: 'bonification',
         Component: BonificacionPage,
-    }
+    },
 ];
