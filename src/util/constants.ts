@@ -1,5 +1,5 @@
 import {SideNavType} from "../interfaces";
-import {Badge, ReceiptLong, Work} from "@mui/icons-material";
+import {Badge, Discount, DoNotTouch, ReceiptLong, Work} from "@mui/icons-material";
 
 export const ADMIN_BASE_PATH = '/admin';
 
@@ -21,6 +21,16 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/bonification`,
                 name: "Bonificación",
                 NavIcon: ReceiptLong
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/discountType`,
+                name: "Tipos de descuento",
+                NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/absenceType`,
+                name: "Tipos de ausencias",
+                NavIcon: DoNotTouch
             },
         ]
     }

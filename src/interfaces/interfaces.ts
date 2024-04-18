@@ -61,6 +61,34 @@ export interface PositionInterface {
     }
 }
 
+export interface DiscountTypeInterface {
+    tdsCodigo: number | null;
+    tdsNombre: string;
+    tdsDescripcion: string;
+    tdsMonto: number;
+    tdsPorcentaje: number;
+    tdsEstado: number;
+    page: Paging<DiscountTypeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface AbsenceTypeInterface {
+    tauCodigo: number | null;
+    tauNombre: string;
+    tauDescripcion: string;
+    tauGoceSalario: number;
+    page: Paging<AbsenceTypeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
 export interface Item {
     itemCode: string | number;
     itemPrimaryText: string;
