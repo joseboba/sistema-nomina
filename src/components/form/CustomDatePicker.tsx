@@ -28,6 +28,7 @@ export const CustomDatePicker = ({xs = 6, ...props}: Props) => {
                         setFieldValue(field.name, value);
                     }}
                     sx={{width: '100%'}}
+                    format={'DD/MM/YYYY'}
                     slotProps={{
                         field: {
                             readOnly: true
