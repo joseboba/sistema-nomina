@@ -51,4 +51,5 @@ export class Utilities {
         return result.isDismissed;
     }
 
+    static capitalizeFirstLetter = (text : string ): string => text.substring(0,1).toUpperCase() + text.substring(1,text.length).toLowerCase();
 }

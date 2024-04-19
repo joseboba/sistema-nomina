@@ -1,28 +1,28 @@
 import {Grid} from "@mui/material";
 import {ListComponent, TitleComponent} from "../components";
-import {BonificationForm} from "../forms/BonificacionForm";
-import { useBonificationStore} from "../../../hooks";
+import { OtherIncomeForm } from "../forms/OtherIncomeForm";
+import { useOtherIncomeStore } from "../../../hooks";
 
 
-export const BonificacionPage = () => {
-    const {bonificationValues, findAll, findById, remove} = useBonificationStore();
+export const OtherIncomePage = () => {
+    const {otherIncomeValues, findAll, findById, remove} = useOtherIncomeStore();
 
     return (
         <>
-            <TitleComponent title={'Bonificaciones'}/>
+            <TitleComponent title={'Otros ingresos'}/>
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <ListComponent
-                        {...bonificationValues.page}
+                        {...otherIncomeValues.page}
                         onSelectItem={code => findById(+code)}
                         onDeleteItem={code => remove(+code)}
                         onChangeSearch={search => findAll(search, 0)}
                         onChangePage={(page, search) => findAll(search, page)}
-                        items={bonificationValues.items}
+                        items={otherIncomeValues.items}
                     />
                 </Grid>
                 <Grid item xs={9}>
-                    <BonificationForm/>
+                    <OtherIncomeForm/>
                 </Grid>
             </Grid>
         </>
