@@ -3,3 +3,7 @@ export * from "./useBonificationStore.ts";
 export * from "./useSuspensionTypesStore.ts";
 export * from "./useOtherIncomeStore.ts";
 export * from './usePositionStore.ts';
+export * from './useAbsenceTypeStore.ts';
+export * from './useCurrencyTypeStore.ts';
+export * from './useDiscountTypeStore.ts';
+export * from './usePeriodStore.ts';

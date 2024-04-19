@@ -1,5 +1,5 @@
 import {SideNavType} from "../interfaces";
-import {Badge, ReceiptLong, Sick, CurrencyExchange, Work} from "@mui/icons-material";
+import {Badge, ReceiptLong, Sick, CurrencyExchange, Work, CalendarMonth, HourglassTop, Discount, Paid} from "@mui/icons-material";
 
 export const ADMIN_BASE_PATH = '/admin';
 
@@ -30,6 +30,26 @@ export const NAVBAR_ROUTES: SideNavType = [
             {
                 to: `${ADMIN_BASE_PATH}/other-income`,
                 name: "Otro ingreso",
+                NavIcon: Paid
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/period`,
+                name: "Periodos",
+                NavIcon: CalendarMonth
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/absenceType`,
+                name: "Tipos de ausencias",
+                NavIcon: HourglassTop
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/discountType`,
+                name: "Tipos de descuentos",
+                NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/currencyType`,
+                name: "Tipos de moneda",
                 NavIcon: CurrencyExchange
             }
         ]

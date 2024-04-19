@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice} from "./modules/administration";
-import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface} from "../interfaces";
+import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice, absenceTypeSlice, discountTypeSlice, currencyTypeSlice, periodSlice} from "./modules/administration";
+import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface, AbsenceTypeInterface, DiscountTypeInterface, CurrencyTypeInterface, PeriodInterface} from "../interfaces";
 import {sidenavSlice} from "./ui";
 import {positionSlice} from "./modules/administration/positionSlice.ts";
 
@@ -10,6 +10,10 @@ export interface StoreInterface {
     suspensionTypes: SuspensionTypeInterface;
     otherIncome: OtherIncomeInterface;
     position: PositionInterface;
+    absenceType: AbsenceTypeInterface;
+    discountType: DiscountTypeInterface;
+    currencyType: CurrencyTypeInterface;
+    period: PeriodInterface
 }
 
 export const store = configureStore({
@@ -19,7 +23,11 @@ export const store = configureStore({
         bonification: bonificationSlice.reducer,
         suspensionTypes: suspensionTypesSlice.reducer,
         otherIncome: otherIncomeSlice.reducer,
-        position: positionSlice.reducer
+        position: positionSlice.reducer,
+        absenceType: absenceTypeSlice.reducer,
+        discountType: discountTypeSlice.reducer,
+        currencyType: currencyTypeSlice.reducer,
+        period: periodSlice.reducer
     }
 });
 
