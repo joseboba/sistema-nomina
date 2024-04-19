@@ -20,6 +20,7 @@ export const useDepartmentStore = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log('first entry');
         findAll('', 0);
     }, []);
 
@@ -53,6 +54,7 @@ export const useDepartmentStore = () => {
                 await payrollApi.put(`${VITE_DEPARTMENT_URI}`, department);
                 await Utilities.successAlarm('Registro actualizado');
                 await findAll(search, page);
+                dispatch(setDepartment(department));
                 return;
             }
 
@@ -75,6 +77,9 @@ export const useDepartmentStore = () => {
             await payrollApi.delete(`${VITE_DEPARTMENT_URI}/${code}`);
             await Utilities.successAlarm('Registro eliminado');
             await findAll(search, page);
+            if (code === departmentValues.depCodigo) {
+                cleanForm();
+            }
         } catch (e) {
             await Utilities.errorAlarm(e);
         }

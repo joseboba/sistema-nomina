@@ -3,3 +3,4 @@ export * from "./LogPage.tsx";
 export * from "./BonificacionPage.tsx";
 export * from "./SuspensionTypesPage.tsx";
 export * from "./OtherIncomePage.tsx";
+export * from './PositionPage.tsx';

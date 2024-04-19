@@ -8,6 +8,10 @@ export const routesAdministration: ModuleRoute[] = [
         Component: DepartmentPage
     },
     {
+        path: 'position',
+        Component: PositionPage
+    },
+    {
         path: 'bonification',
         Component: BonificacionPage,
     },
