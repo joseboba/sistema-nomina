@@ -8,7 +8,7 @@ export interface BonificationInterface {
     bonDescripcion: string;
     bonMonto: number;
     bonPorcentaje: number;
-    bonEstado: string;
+    bonEstado: number;
     page: Paging<BonificationInterface> | null;
     items: Item[];
     params: {

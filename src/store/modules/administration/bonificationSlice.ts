@@ -9,7 +9,7 @@ const initialState: BonificationInterface  = {
     bonDescripcion: '',
     bonMonto: 0,
     bonPorcentaje: 0,
-    bonEstado: '',
+    bonEstado: 1,
     page: {
         hasNext: false,
         hasPrevious: false,
@@ -38,13 +38,13 @@ export const bonificationSlice = createSlice({
                 itemSecondaryTextKey: 'bonCodigo'
             });
         },
-        cleanDataBonification: (state) => {
+        clearDataBonification: (state) => {
             state.bonCodigo = 0;
             state.bonNombre = "";
             state.bonDescripcion = "";
             state.bonMonto = 0;
             state.bonPorcentaje = 0;
-            state.bonEstado = "";
+            state.bonEstado = 1;
         },
         setBonification: (state, {payload}: PayloadAction<BonificationInterface>) => {
             state.bonCodigo = payload.bonCodigo;
@@ -64,7 +64,7 @@ export const bonificationSlice = createSlice({
 
 export const {
     setPageResultBonification,
-    cleanDataBonification,
+    clearDataBonification,
     setBonification,
     setParamsBonification
 } = bonificationSlice.actions;

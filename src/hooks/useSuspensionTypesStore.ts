@@ -3,20 +3,20 @@ import {StoreInterface} from "../store";
 import {useEffect} from "react";
 import {getEnvVariables, parsePagination} from "../helpers";
 import {payrollApi} from "../api";
-import {BonificationInterface} from "../interfaces";
+import { SuspensionTypeInterface} from "../interfaces";
 import {
-    clearDataBonification,
-    setBonification,
-    setPageResultBonification,
-    setParamsBonification
+    clearSuspensionTypeData,
+    setSuspensionType,
+    setPageResultSuspensionTypes,
+    setSuspensionTypesParameters
 } from "../store/modules/administration";
 import {Utilities} from "../util";
 
-const {VITE_BONIFICATION_URI} = getEnvVariables();
+const {VITE_SUSPENSION_TYPES_URI} = getEnvVariables();
 
-export const useBonificationStore = () => {
+export const useSuspensionTypesStore = () => {
 
-    const bonificationValues = useSelector((state: StoreInterface) => state.bonification);
+    const suspensionTypesValues = useSelector((state: StoreInterface) => state.suspensionTypes);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,11 +27,11 @@ export const useBonificationStore = () => {
     const findAll = async (search: string, page: number) => {
         try {
             const params = {search, page, size: 10};
-            dispatch(setParamsBonification(params));
-            const {data, headers} = await payrollApi.get(`${VITE_BONIFICATION_URI}`, {params});
-            const response = parsePagination<BonificationInterface>(headers);
+            dispatch(setSuspensionTypesParameters(params));
+            const {data, headers} = await payrollApi.get(`${VITE_SUSPENSION_TYPES_URI}`, {params});
+            const response = parsePagination<SuspensionTypeInterface>(headers);
             response.content = data;
-            dispatch(setPageResultBonification(response));
+            dispatch(setPageResultSuspensionTypes(response));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
@@ -39,28 +39,28 @@ export const useBonificationStore = () => {
 
     const findById = async (code: number) => {
         try {
-            const {data} = await payrollApi.get(`${VITE_BONIFICATION_URI}/${code}`);
-            dispatch(setBonification(data));
+            const {data} = await payrollApi.get(`${VITE_SUSPENSION_TYPES_URI}/${code}`);
+            dispatch(setSuspensionType(data));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
     }
 
-    const saveOrUpdate = async (bonification: BonificationInterface) => {
+    const saveOrUpdate = async (suspensionType: SuspensionTypeInterface) => {
         try {
-            const {search, page} = bonificationValues.params;
-            if (bonification.bonCodigo) {
-                await payrollApi.put(`${VITE_BONIFICATION_URI}`, bonification);
+            const {search, page} = suspensionTypesValues.params;
+            if (suspensionType.tsuCodigo) {
+                await payrollApi.put(`${VITE_SUSPENSION_TYPES_URI}`, suspensionType);
                 await Utilities.successAlarm('Registro actualizado');
                 await findAll(search, page);
-                dispatch(setBonification(bonification));
+                dispatch(setSuspensionType(suspensionType));
                 return;
             }
 
-            const {data} = await payrollApi.post(`${VITE_BONIFICATION_URI}`, bonification);
+            const {data} = await payrollApi.post(`${VITE_SUSPENSION_TYPES_URI}`, suspensionType);
             await Utilities.successAlarm('Registro guardado');
             await findAll(search, page);
-            dispatch(setBonification(data));
+            dispatch(setSuspensionType(data));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
@@ -68,15 +68,15 @@ export const useBonificationStore = () => {
 
     const remove = async (code: number) => {
         try {
-            const {search, page} = bonificationValues.params;
+            const {search, page} = suspensionTypesValues.params;
             const result = await Utilities.warningAlarm('¿Desea eliminar el registro?');
             if (result) {
                 return;
             }
-            await payrollApi.delete(`${VITE_BONIFICATION_URI}/${code}`);
+            await payrollApi.delete(`${VITE_SUSPENSION_TYPES_URI}/${code}`);
             await Utilities.successAlarm('Registro eliminado');
             await findAll(search, page);
-            if (code === bonificationValues.bonCodigo) {
+            if (code === suspensionTypesValues.tsuCodigo) {
                 cleanForm();
             }
         } catch (e) {
@@ -85,13 +85,13 @@ export const useBonificationStore = () => {
     }
 
     const cleanForm = () => {
-        dispatch(clearDataBonification());
+        dispatch(clearSuspensionTypeData());
     }
 
 
     return {
-        ...bonificationValues,
-        bonificationValues,
+        ...suspensionTypesValues,
+        suspensionTypesValues,
         findAll,
         findById,
         saveOrUpdate,
