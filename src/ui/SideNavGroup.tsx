@@ -20,7 +20,8 @@ export const SideNavGroup = ({moduleName, items}: SideNavGroupInterface) => {
         <List component={'nav'} sx={{
             backgroundColor: 'rgb(255,255,255, 0.1)',
             borderRadius: 5,
-            m: 1
+            m: 1,
+            overflowY: 'scroll'
         }}>
             <ListItemButton sx={{display: 'flex'}} onClick={handleCollapse} disableRipple>
                 <AutoAwesomeMotion sx={{
