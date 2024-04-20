@@ -7,3 +7,4 @@ export * from './absenceTypeSlice.ts';
 export * from './discountTypeSlice.ts';
 export * from './currencyTypeSlice.ts';
 export * from './periodSlice.ts';
+export * from './employeeSlice.ts';

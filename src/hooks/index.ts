@@ -7,3 +7,4 @@ export * from './useAbsenceTypeStore.ts';
 export * from './useCurrencyTypeStore.ts';
 export * from './useDiscountTypeStore.ts';
 export * from './usePeriodStore.ts';
+export * from './useEmployeeStore.ts';

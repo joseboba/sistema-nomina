@@ -51,6 +51,11 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/currencyType`,
                 name: "Tipos de moneda",
                 NavIcon: CurrencyExchange
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee`,
+                name: "Empleado",
+                NavIcon: Badge
             }
         ]
     }
