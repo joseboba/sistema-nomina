@@ -48,6 +48,41 @@ export interface DepartmentInterface {
     }
 }
 
+export interface EmployeeInterface {
+    empCodigo: number | null;
+    empCUI: string;
+    empNIT: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empTercerNombre: string | null;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+    empApellidoCasada: string | null;
+    empFechaNacimiento: Moment | string;
+    empProfesion: string;
+    empTelefono: string;
+    empCorreo: string;
+    empCodigoIGSS: string;
+    empEncargado: number | null;
+    empFechaInicio: Moment | string;
+    empNumeroCuenta: string;
+    banCodigo: number | null;
+    tcuCodigo: number | null;
+    epuCodigo: number | null;
+    pueCodigo: number | null;
+    tmoCodigo: number | null;
+    epuFechaInicio: Moment | string;
+    epuFechaFinal: Moment | string;
+    epuSalario: number;
+    epuEstado: number;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
 export interface PositionInterface {
     pueCodigo: number | null;
     depCodigo: number | null;
@@ -116,6 +151,16 @@ export interface CurrencyTypeInterface {
         search: string;
         page: number;
     }
+}
+
+export interface BankInterface {
+    banCodigo: number | null;
+    banNombre: string;
+}
+
+export interface AccountTypeInterface {
+    tcuCodigo: number | null;
+    tcuNombre: string;
 }
 
 export interface Item {

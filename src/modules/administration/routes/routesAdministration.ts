@@ -1,5 +1,5 @@
 import {ModuleRoute} from "../../../interfaces";
-import {BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, DiscountTypePage, CurrencyTypePage} from "../pages";
+import {BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, DiscountTypePage, CurrencyTypePage, EmployeePage} from "../pages";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -38,5 +38,9 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'currencyType',
         Component: CurrencyTypePage
+    },
+    {
+        path: 'employee',
+        Component: EmployeePage
     }
 ];
