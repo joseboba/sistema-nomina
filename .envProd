@@ -4,3 +4,5 @@ VITE_BASE_URL=http://192.168.1.16/be
 VITE_DEPARTMENT_URI=/api/NmiDepartamento
 VITE_POSITION_URI=/api/NmiPuesto
 VITE_BONIFICACION_URI=/api/NmiBonificacion
+VITE_TIPO_DEDUCCIONES_URI=/api/NmiTipoDeducciones
+VITE_TIPO_PRESTACION_URI=/api/NmiTipoPrestacion
