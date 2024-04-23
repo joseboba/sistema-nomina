@@ -61,6 +61,11 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/benefitType`,
                 name: "Tipos de prestaciones",
                 NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee`,
+                name: "Empleado",
+                NavIcon: Badge
             }
         ]
     }
