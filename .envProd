@@ -1,5 +1,3 @@
-
-
 VITE_BASE_URL=http://192.168.200.1/be
 VITE_DEPARTMENT_URI=/api/NmiDepartamento
 VITE_BONIFICATION_URI=/api/NmiBonificacion

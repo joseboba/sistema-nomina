@@ -1,11 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-<<<<<<< HEAD
-import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice, absenceTypeSlice, discountTypeSlice, currencyTypeSlice, periodSlice, deductionTypeSlice, benefitTypeSlice} from "./modules/administration";
-import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface, AbsenceTypeInterface, DiscountTypeInterface, CurrencyTypeInterface, PeriodInterface, DeductionTypeInterface, BenefitTypeInterface} from "../interfaces";
-=======
-import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice, absenceTypeSlice, discountTypeSlice, currencyTypeSlice, periodSlice, employeeSlice} from "./modules/administration";
-import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface, AbsenceTypeInterface, DiscountTypeInterface, CurrencyTypeInterface, PeriodInterface, EmployeeInterface, BankInterface, AccountTypeInterface} from "../interfaces";
->>>>>>> 0bf0623c41cc529f3b32b8815543d6674d518c0d
+import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice, absenceTypeSlice, discountTypeSlice, currencyTypeSlice, periodSlice, employeeSlice, deductionTypeSlice, benefitTypeSlice} from "./modules/administration";
+import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface, AbsenceTypeInterface, DiscountTypeInterface, CurrencyTypeInterface, PeriodInterface, EmployeeInterface, BankInterface, AccountTypeInterface, DeductionTypeInterface, BenefitTypeInterface} from "../interfaces";
 import {sidenavSlice} from "./ui";
 import {positionSlice} from "./modules/administration/positionSlice.ts";
 

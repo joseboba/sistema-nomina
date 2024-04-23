@@ -1,9 +1,5 @@
 import {ModuleRoute} from "../../../interfaces";
-<<<<<<< HEAD
-import { BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, DeductionTypePage, DiscountTypePage, BenefitTypePage, CurrencyTypePage} from "../pages";
-=======
-import {BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, DiscountTypePage, CurrencyTypePage, EmployeePage} from "../pages";
->>>>>>> 0bf0623c41cc529f3b32b8815543d6674d518c0d
+import { BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, EmployeePage, DeductionTypePage, DiscountTypePage, BenefitTypePage, CurrencyTypePage} from "../pages";
 
 
 export const routesAdministration: ModuleRoute[] = [
