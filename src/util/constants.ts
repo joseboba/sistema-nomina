@@ -48,9 +48,19 @@ export const NAVBAR_ROUTES: SideNavType = [
                 NavIcon: Discount
             },
             {
+                to: `${ADMIN_BASE_PATH}/deductionType`,
+                name: "Tipos de deducciones",
+                NavIcon: Discount
+            },
+            {
                 to: `${ADMIN_BASE_PATH}/currencyType`,
                 name: "Tipos de moneda",
                 NavIcon: CurrencyExchange
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/benefitType`,
+                name: "Tipos de prestaciones",
+                NavIcon: Discount
             },
             {
                 to: `${ADMIN_BASE_PATH}/employee`,
