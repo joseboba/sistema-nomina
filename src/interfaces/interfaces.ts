@@ -124,6 +124,32 @@ export interface AbsenceTypeInterface {
     }
 }
 
+export interface EmployeeBonusInterface {
+    empCodigo: number | null;
+    bonCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface EmployeeDiscountInterface {
+    empCodigo: number | null;
+    tdsCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
 export interface DiscountTypeInterface {
     tdsCodigo: number | null;
     tdsNombre: string;
@@ -176,6 +202,7 @@ export interface ListComponentProps {
     totalPageCount: number | undefined;
     hasNext: boolean;
     hasPrevious: boolean;
+    useDelete: boolean;
     onSelectItem: (code: string | number) => void;
     onDeleteItem: (code: string | number) => void;
     onChangeSearch: (search: string) => void;

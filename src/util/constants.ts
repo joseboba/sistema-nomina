@@ -1,5 +1,18 @@
 import {SideNavType} from "../interfaces";
-import {Badge, ReceiptLong, Sick, CurrencyExchange, Work, CalendarMonth, HourglassTop, Discount, Paid} from "@mui/icons-material";
+import {
+    Badge,
+    CalendarMonth,
+    CurrencyExchange,
+    Discount,
+    HourglassTop,
+    Paid,
+    ReceiptLong,
+    Sick,
+    Work,
+    CardGiftcard,
+    CreditCardOff, Schedule
+} from "@mui/icons-material";
+import {ExtraHoursPage} from "../modules/administration/pages/ExtraHoursPage.tsx";
 
 export const ADMIN_BASE_PATH = '/admin';
 
@@ -66,6 +79,21 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/employee`,
                 name: "Empleado",
                 NavIcon: Badge
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee-bonification`,
+                name: 'Empleado Bonificación',
+                NavIcon: CardGiftcard
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee-discount`,
+                name: 'Empleado Descuento',
+                NavIcon: CreditCardOff
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/extra-hours`,
+                name: 'Carga de horas extra',
+                NavIcon: Schedule
             }
         ]
     }

@@ -1,5 +1,21 @@
 import {ModuleRoute} from "../../../interfaces";
-import { BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, EmployeePage, DeductionTypePage, DiscountTypePage, BenefitTypePage, CurrencyTypePage} from "../pages";
+import {
+    AbsenceTypePage,
+    BenefitTypePage,
+    BonificacionPage,
+    CurrencyTypePage,
+    DeductionTypePage,
+    DepartmentPage,
+    DiscountTypePage,
+    EmployeeBonusPage,
+    EmployeeDiscountPage,
+    EmployeePage,
+    OtherIncomePage,
+    PeriodPage,
+    PositionPage,
+    SuspensionTypesPage
+} from "../pages";
+import {ExtraHoursPage} from "../pages/ExtraHoursPage.tsx";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -50,5 +66,21 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'employee',
         Component: EmployeePage
+    },
+    {
+        path: 'employee-bonification',
+        Component: EmployeeBonusPage
+    },
+    {
+        path: 'discountType',
+        Component: DiscountTypePage
+    },
+    {
+        path: 'employee-discount',
+        Component: EmployeeDiscountPage
+    },
+    {
+        path: 'extra-hours',
+        Component: ExtraHoursPage
     }
 ];

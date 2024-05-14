@@ -5,11 +5,12 @@ interface Props {
     itemCode: string | number;
     itemPrimaryText: string;
     itemSecondaryText: string;
+    useDelete: boolean;
     onSelect: (code: number | string) => void;
     onDelete: (code: number | string) => void;
 }
 
-export const ListItemComponent = ({itemCode, itemPrimaryText, itemSecondaryText, onSelect, onDelete}: Props) => {
+export const ListItemComponent = ({itemCode, itemPrimaryText, itemSecondaryText, onSelect, onDelete, useDelete = true}: Props) => {
     return (
         <ListItem
             sx={{
@@ -20,11 +21,13 @@ export const ListItemComponent = ({itemCode, itemPrimaryText, itemSecondaryText,
             }}
             key={itemCode}
             secondaryAction={
-                <IconButton onClick={() => onDelete(itemCode)} className={'list-button'}>
-                    <Avatar size={'small'}>
-                        <Delete/>
-                    </Avatar>
-                </IconButton>
+                useDelete && (
+                    <IconButton onClick={() => onDelete(itemCode)} className={'list-button'}>
+                        <Avatar size={'small'}>
+                            <Delete/>
+                        </Avatar>
+                    </IconButton>
+                )
             }
         >
             <ListItemText

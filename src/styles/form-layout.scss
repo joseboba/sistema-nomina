@@ -5,6 +5,17 @@
   overflow-y: auto;
 }
 
+.query-search-bar {
+  padding-top: 1rem;
+  height: 5rem;
+  overflow-y: auto;
+}
+
+.query-content {
+  height: calc(100vh - (8px + 24px + 56px + 32px + 37px + 48px + 1rem + 25px + 3rem));
+  overflow-y: auto;
+}
+
 .form-header {
   display: flex;
   justify-content: space-between;

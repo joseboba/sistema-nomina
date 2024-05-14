@@ -10,3 +10,5 @@ export * from './periodSlice.ts';
 export * from './deductionTypeSlice.ts';
 export * from './benefitTypeSlice.ts';
 export * from './employeeSlice.ts';
+export * from './employeeBonusSlice.ts';
+export * from './employeeDiscountSlice.ts';
