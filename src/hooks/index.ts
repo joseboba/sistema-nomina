@@ -10,3 +10,5 @@ export * from './usePeriodStore.ts';
 export * from './useDeductionTypeStore.ts';
 export * from './useBenefitTypeStore.ts';
 export * from './useEmployeeStore.ts';
+export * from './useEmployeeBonusStore.ts';
+export * from './useEmployeeDiscountStore.ts';

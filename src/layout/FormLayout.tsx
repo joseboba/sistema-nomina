@@ -11,7 +11,7 @@ interface Props {
     statusActive?: boolean;
     children: ReactElement | ReactElement[];
     initialValues: FormikValues;
-    validationSchema: any | (() => any);
+    validationSchema?: any | (() => any);
     onSubmit: (values: FormikValues, formikHelpers: FormikHelpers<FormikValues>) => void;
     onClean: () => void;
     onChangeStatus?: () => void;

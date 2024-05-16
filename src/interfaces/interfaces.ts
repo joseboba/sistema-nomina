@@ -124,6 +124,81 @@ export interface AbsenceTypeInterface {
     }
 }
 
+export interface EmployeeBonusNoAssociated {
+    bonCodigo:      number;
+    bonNombre:      string;
+    bonDescripcion: string;
+    bonMonto:       number;
+    bonPorcentaje:  number;
+    bonEstado:      number;
+}
+
+export interface EmployeeBonusAssociated {
+    empCodigo:             number;
+    epuCodigo:             number;
+    empBonificacionCodigo: number;
+    eboEstado:             number;
+    bonCodigo:             number;
+    bonNombre:             string;
+    bonDescripcion:        string;
+    bonMonto:              number;
+    bonPorcentaje:         number;
+    bonEstado:             number;
+}
+
+export interface EmployeeBonusInterface {
+    empCodigo: number;
+    bonCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    bonusNoAssociated: EmployeeBonusNoAssociated[];
+    bonusAssociated: EmployeeBonusAssociated[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface EmployeeDiscountNoAssociated {
+    tdeCodigo:      number;
+    tdeNombre:      string;
+    tdeDescripcion: string;
+    tdeMonto:       number;
+    tdePorcentaje:  number;
+    tdeEstado:      number;
+}
+
+export interface EmployeeDiscountAssociated {
+    empCodigo:      number;
+    epuCodigo:      number;
+    demCodigo:      number;
+    demEstado:      number;
+    tdeCodigo:      number;
+    tdeNombre:      string;
+    tdeDescripcion: string;
+    tdeMonto:       number;
+    tdePorcentaje:  number;
+    tdeEstado:      number;
+}
+
+
+export interface EmployeeDiscountInterface {
+    empCodigo: number;
+    tdeCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    discountAssociated: EmployeeDiscountAssociated[];
+    discountNoAssociated: EmployeeDiscountNoAssociated[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
 export interface DiscountTypeInterface {
     tdsCodigo: number | null;
     tdsNombre: string;
@@ -176,6 +251,7 @@ export interface ListComponentProps {
     totalPageCount: number | undefined;
     hasNext: boolean;
     hasPrevious: boolean;
+    useDelete: boolean;
     onSelectItem: (code: string | number) => void;
     onDeleteItem: (code: string | number) => void;
     onChangeSearch: (search: string) => void;

@@ -1,8 +1,39 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {departmentSlice, bonificationSlice, suspensionTypesSlice, otherIncomeSlice, absenceTypeSlice, discountTypeSlice, currencyTypeSlice, periodSlice, employeeSlice, deductionTypeSlice, benefitTypeSlice} from "./modules/administration";
-import {BonificationInterface, DepartmentInterface, OtherIncomeInterface, SuspensionTypeInterface, PositionInterface, AbsenceTypeInterface, DiscountTypeInterface, CurrencyTypeInterface, PeriodInterface, EmployeeInterface, BankInterface, AccountTypeInterface, DeductionTypeInterface, BenefitTypeInterface} from "../interfaces";
+import {
+    absenceTypeSlice,
+    benefitTypeSlice,
+    bonificationSlice,
+    currencyTypeSlice,
+    deductionTypeSlice,
+    departmentSlice,
+    discountTypeSlice,
+    employeeSlice,
+    otherIncomeSlice,
+    periodSlice,
+    positionSlice,
+    suspensionTypesSlice,
+    employeeBonusSlice,
+    employeeDiscountSlice,
+} from "./modules/administration";
+import {
+    AbsenceTypeInterface,
+    AccountTypeInterface,
+    BankInterface,
+    BenefitTypeInterface,
+    BonificationInterface,
+    CurrencyTypeInterface,
+    DeductionTypeInterface,
+    DepartmentInterface,
+    DiscountTypeInterface,
+    EmployeeInterface,
+    OtherIncomeInterface,
+    PeriodInterface,
+    PositionInterface,
+    SuspensionTypeInterface,
+    EmployeeBonusInterface,
+    EmployeeDiscountInterface
+} from "../interfaces";
 import {sidenavSlice} from "./ui";
-import {positionSlice} from "./modules/administration/positionSlice.ts";
 
 export interface StoreInterface {
     department: DepartmentInterface;
@@ -18,7 +49,9 @@ export interface StoreInterface {
     deductionType: DeductionTypeInterface;
     currencyType: CurrencyTypeInterface;
     benefitType: BenefitTypeInterface;
-    period: PeriodInterface
+    period: PeriodInterface;
+    employeeBonus: EmployeeBonusInterface;
+    employeeDiscount: EmployeeDiscountInterface;
 }
 
 export const store = configureStore({
@@ -35,7 +68,9 @@ export const store = configureStore({
         deductionType: deductionTypeSlice.reducer,
         currencyType: currencyTypeSlice.reducer,
         benefitType: benefitTypeSlice.reducer,
-        period: periodSlice.reducer
+        period: periodSlice.reducer,
+        employeeBonus: employeeBonusSlice.reducer,
+        employeeDiscount: employeeDiscountSlice.reducer
     }
 });
 

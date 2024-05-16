@@ -1,0 +1,12 @@
+
+
+
+.table {
+  margin-top: 1rem;
+  box-shadow: none !important;
+}
+
+.table-content-height {
+  height: calc(100vh - (8px + 24px + 56px + 32px + 37px + 48px + 1rem + 25px + 6rem));
+  overflow-y: auto;
+}

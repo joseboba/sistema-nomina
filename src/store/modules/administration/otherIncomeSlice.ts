@@ -48,7 +48,7 @@ export const otherIncomeSlice = createSlice({
             state.oinCodigo = payload.oinCodigo;
             state.epuCodigo = payload.epuCodigo;
             state.oinMonto = payload.oinMonto;
-            state.oinFecha = moment( payload.oinFecha,"DD-MM-YYYY");
+            state.oinFecha = moment( payload.oinFecha, "DD-MMM-YY hh.mm.ss.SSSSSSSSS A");
         },
         setParamsOtherIncome: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
             state.params.search = payload.search;
