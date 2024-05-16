@@ -1,10 +1,16 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {EmployeeBonusInterface, EmployeeDiscountInterface, EmployeeInterface, Paging} from "../../../interfaces";
+import {
+    EmployeeBonusInterface,
+    EmployeeDiscountAssociated,
+    EmployeeDiscountInterface, EmployeeDiscountNoAssociated,
+    EmployeeInterface,
+    Paging
+} from "../../../interfaces";
 import {Utilities} from "../../../util";
 
 const initialState: EmployeeDiscountInterface = {
     empCodigo: 0,
-    tdsCodigo: 0,
+    tdeCodigo: 0,
     empPrimerNombre: '',
     empSegundoNombre: '',
     page: {
@@ -16,6 +22,15 @@ const initialState: EmployeeDiscountInterface = {
         currentPage: 0,
         pageSize: 0
     },
+    discountNoAssociated: [{
+        tdeCodigo:      0,
+        tdeNombre:      'Selecciona una deducción',
+        tdeDescripcion: '',
+        tdeMonto:       0,
+        tdePorcentaje:  0,
+        tdeEstado:      0,
+    }],
+    discountAssociated: [],
     items: [],
     params: {
         search: '',
@@ -40,16 +55,31 @@ export const employeeDiscountSlice = createSlice({
             state.tdsCodigo = 0;
             state.empPrimerNombre = '';
             state.empSegundoNombre = '';
+            state.discountNoAssociated = [{
+                tdeCodigo:      0,
+                tdeNombre:      'Selecciona una deducción',
+                tdeDescripcion: '',
+                tdeMonto:       0,
+                tdePorcentaje:  0,
+                tdeEstado:      0,
+            }];
+            state.discountAssociated = [];
         },
-        setEmployeeDiscount: (state, {payload}: PayloadAction<EmployeeBonusInterface>) => {
+        setEmployeeDiscount: (state, {payload}: PayloadAction<EmployeeDiscountInterface>) => {
             state.empCodigo = payload.empCodigo;
-            state.tdsCodigo = payload.bonCodigo;
+            state.tdeCodigo = payload.tdeCodigo;
             state.empPrimerNombre = payload.empPrimerNombre;
             state.empSegundoNombre = payload.empSegundoNombre;
         },
-        setEmployeeDiscountParams: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
+        setEmployeeDiscountParams: (state, {payload}: PayloadAction<{ search: string, page: number }>) => {
             state.params.search = payload.search;
             state.params.page = payload.page;
+        },
+        setDiscountNoAssociated: (state, {payload}: PayloadAction<EmployeeDiscountNoAssociated[]>) => {
+          state.discountNoAssociated = payload;
+        },
+        setDiscountAssociated: (state, {payload}: PayloadAction<EmployeeDiscountAssociated[]>) => {
+            state.discountAssociated = payload;
         }
     }
 });
@@ -59,5 +89,7 @@ export const {
     setEmployeeDiscountPage,
     cleanEmployeeDiscount,
     setEmployeeDiscount,
-    setEmployeeDiscountParams
+    setEmployeeDiscountParams,
+    setDiscountNoAssociated,
+    setDiscountAssociated
 } = employeeDiscountSlice.actions;

@@ -14,12 +14,9 @@ import {
     TableRow
 } from "@mui/material";
 import {Delete} from "@mui/icons-material";
-import {useEmployeeDiscountStore} from "../../../hooks/useEmployeeDiscountStore.ts";
-
-const dummyExample = [
-    {tdeNombre: 'IGSS', tdeMonto: 1, tdePorcentaje: 0},
-    {tdeNombre: 'IRTRA', tdeMonto: 10.45, tdePorcentaje: null},
-];
+import {useEmployeeDiscountStore} from "../../../hooks";
+import {FormikValues} from "formik";
+import {employeeBonusValidationSchema} from "./validations/employeeDiscountValidationSchema.ts";
 
 const tableHeaders = ['Deducción', 'Valor', 'Porcentaje', 'Eliminar'];
 
@@ -39,8 +36,17 @@ export const EmployeeDiscountForm = () => {
         empCodigo,
         empPrimerNombre = '',
         empSegundoNombre = '',
+        discountAssociated,
+        discountNoAssociated,
+        tdeCodigo,
+        saveDiscountAssociation,
+        deleteAssociateDiscount,
         cleanForm
     } = useEmployeeDiscountStore();
+
+    const onSubmit = async ({empCodigo, tdeCodigo}: FormikValues) => {
+        await saveDiscountAssociation(empCodigo, tdeCodigo);
+    };
 
     const onClean = () => {
         cleanForm();
@@ -53,17 +59,18 @@ export const EmployeeDiscountForm = () => {
                 empCodigo,
                 empPrimerNombre,
                 empSegundoNombre,
+                tdeCodigo
             }}
-            onSubmit={() => console.log('submit')}
+            onSubmit={onSubmit}
             onClean={onClean}
-            validationSchema={{}}
+            validationSchema={employeeBonusValidationSchema}
         >
             <CustomInputText label={'Primer Nombre'} name={'empPrimerNombre'} disabled/>
             <CustomInputText label={'Segundo Nombre'} name={'empSegundoNombre'} disabled/>
-            <CustomSelect label={'Deduccion'} name={'tdsCodigo'} xs={12}>
+            <CustomSelect label={'Deduccion'} name={'tdeCodigo'} xs={12}>
                 {
-                    dummyExample.map((discount, i) => (
-                        <MenuItem key={i} value={discount.tdeNombre}>
+                    discountNoAssociated.map((discount) => (
+                        <MenuItem key={discount.tdeCodigo} value={discount.tdeCodigo}>
                             {discount.tdeNombre}
                         </MenuItem>
                     ))
@@ -82,15 +89,16 @@ export const EmployeeDiscountForm = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            dummyExample.map((row) => (
-                                <TableRow>
+                            discountAssociated.map((row) => (
+                                <TableRow key={row.tdeCodigo}>
                                     <TableCell align={'center'}> {row.tdeNombre} </TableCell>
                                     <TableCell
                                         align={'center'}> {row.tdeMonto ? row.tdeMonto : row.tdePorcentaje} </TableCell>
                                     <TableCell align={'center'}> {row.tdePorcentaje ? 'Si' : 'No'} </TableCell>
                                     <TableCell align={'center'}>
                                         <IconButton
-                                            onClick={() => console.log('hola eliminar')}
+                                            type={'button'}
+                                            onClick={() => deleteAssociateDiscount(empCodigo, row.demCodigo)}
                                         >
                                             <Delete style={{color: 'red'}}/>
                                         </IconButton>

@@ -1,5 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {EmployeeBonusInterface, EmployeeInterface, Paging} from "../../../interfaces";
+import {
+    EmployeeBonusAssociated,
+    EmployeeBonusInterface,
+    EmployeeBonusNoAssociated,
+    EmployeeInterface,
+    Paging
+} from "../../../interfaces";
 import {Utilities} from "../../../util";
 
 const initialState: EmployeeBonusInterface = {
@@ -17,6 +23,15 @@ const initialState: EmployeeBonusInterface = {
         pageSize: 0
     },
     items: [],
+    bonusNoAssociated: [{
+        bonCodigo: 0,
+        bonNombre: 'Seleccione una bonificación',
+        bonDescripcion: '',
+        bonMonto: 0,
+        bonPorcentaje: 0,
+        bonEstado: 0
+    }],
+    bonusAssociated: [],
     params: {
         search: '',
         page: 0
@@ -40,6 +55,15 @@ export const employeeBonusSlice = createSlice({
             state.bonCodigo = 0;
             state.empPrimerNombre = '';
             state.empSegundoNombre = '';
+            state.bonusNoAssociated = [{
+                bonCodigo: 0,
+                bonNombre: 'Seleccione una bonificación',
+                bonDescripcion: '',
+                bonMonto: 0,
+                bonPorcentaje: 0,
+                bonEstado: 0
+            }];
+            state.bonusAssociated = [];
         },
         setEmployeeBonusData: (state, {payload}: PayloadAction<EmployeeBonusInterface>) => {
             state.empCodigo = payload.empCodigo;
@@ -50,6 +74,12 @@ export const employeeBonusSlice = createSlice({
         setEmployeeBonusDataParams: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
             state.params.search = payload.search;
             state.params.page = payload.page;
+        },
+        setBonusNoAssociated: (state, {payload}: PayloadAction<EmployeeBonusNoAssociated[]>) => {
+            state.bonusNoAssociated = payload;
+        },
+        setBonusAssociated: (state, {payload}: PayloadAction<EmployeeBonusAssociated[]>) => {
+            state.bonusAssociated = payload;
         }
     }
 });
@@ -59,5 +89,7 @@ export const {
     setEmployeeBonusPage,
     cleanEmployeeBonusData,
     setEmployeeBonusData,
-    setEmployeeBonusDataParams
+    setEmployeeBonusDataParams,
+    setBonusNoAssociated,
+    setBonusAssociated
 } = employeeBonusSlice.actions;

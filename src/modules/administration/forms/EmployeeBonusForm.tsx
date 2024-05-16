@@ -1,6 +1,5 @@
 import {FormLayout} from "../../../layout/FormLayout.tsx";
 import {CustomInputText, CustomSelect} from "../../../components/form";
-import {useEmployeeStore} from "../../../hooks";
 import {
     IconButton, MenuItem,
     Paper,
@@ -14,12 +13,9 @@ import {
     TableRow
 } from "@mui/material";
 import {Delete} from "@mui/icons-material";
-import {useEmployeeBonusStore} from "../../../hooks/useEmployeeBonusStore.ts";
-
-const dummyExample = [
-    { bonNombre: 'Netflix', bonMonto: 1, bonPorcentaje: 0 },
-    { bonNombre: 'Gimnasio', bonMonto: 10.45, bonPorcentaje: null },
-];
+import {useEmployeeBonusStore} from "../../../hooks";
+import {FormikValues} from "formik";
+import {employeeBonusValidationSchema} from "./validations/employeeBonusValidationSchema.ts";
 
 const tableHeaders = ['Bonificación', 'Valor', 'Porcentaje', 'Eliminar'];
 
@@ -39,8 +35,17 @@ export const EmployeeBonusForm = () => {
         empCodigo,
         empPrimerNombre = '',
         empSegundoNombre = '',
+        bonCodigo,
+        bonusNoAssociated,
+        bonusAssociated,
+        saveBonusAssociation,
+        deleteAssociateBonus,
         cleanForm
     } = useEmployeeBonusStore();
+
+    const onSubmit = async ({empCodigo, bonCodigo}: FormikValues) => {
+        await saveBonusAssociation(empCodigo, bonCodigo);
+    };
 
     const onClean = () => {
         cleanForm();
@@ -48,23 +53,23 @@ export const EmployeeBonusForm = () => {
 
     return (
         <FormLayout
-            update={empPrimerNombre}
+            update={empPrimerNombre !== ''}
             initialValues={{
                 empCodigo,
                 empPrimerNombre,
                 empSegundoNombre,
-                bonCodigo: '0',
+                bonCodigo
             }}
-            onSubmit={() => console.log('submit')}
+            onSubmit={onSubmit}
             onClean={onClean}
-            validationSchema={{}}
+            validationSchema={employeeBonusValidationSchema}
         >
             <CustomInputText label={'Primer Nombre'} name={'empPrimerNombre'} disabled />
             <CustomInputText label={'Segundo Nombre'} name={'empSegundoNombre'} disabled />
             <CustomSelect label={'Bonificación'} name={'bonCodigo'} xs={12}>
                     {
-                        dummyExample.map((bonus, i) => (
-                            <MenuItem key={i} value={bonus.bonNombre}>
+                        bonusNoAssociated.map((bonus) => (
+                            <MenuItem key={bonus.bonCodigo} value={bonus.bonCodigo}>
                                 { bonus.bonNombre }
                             </MenuItem>
                         ))
@@ -76,21 +81,22 @@ export const EmployeeBonusForm = () => {
                         <TableRow>
                             {
                                 tableHeaders.map((header) => (
-                                    <StyledTableCell align={'center'}> { header } </StyledTableCell>
+                                    <StyledTableCell align={'center'} key={header}> { header } </StyledTableCell>
                                 ))
                             }
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {
-                            dummyExample.map((row) => (
-                                <TableRow>
+                            bonusAssociated.map((row) => (
+                                <TableRow key={row.empBonificacionCodigo}>
                                     <TableCell align={'center'}> { row.bonNombre } </TableCell>
                                     <TableCell align={'center'}> { row.bonMonto ? row.bonMonto : row.bonPorcentaje } </TableCell>
                                     <TableCell align={'center'}> { row.bonPorcentaje ? 'Si' : 'No' } </TableCell>
                                     <TableCell align={'center'}>
                                         <IconButton
-                                            onClick={() => console.log('hola eliminar')}
+                                            type={'button'}
+                                            onClick={() => deleteAssociateBonus(empCodigo, row.empBonificacionCodigo)}
                                         >
                                             <Delete style={{ color: 'red' }} />
                                         </IconButton>

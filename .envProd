@@ -14,3 +14,5 @@ VITE_PERIOD_URI=/api/NmiPeriodo
 VITE_EMPLOYEE_URI=/api/nmiEmpleado
 VITE_BANK_URI=/api/NmiBanco
 VITE_ACCOUNT_TYPE_URI=/api/NmiTipoCuenta
+VITE_EMPLOYEE_BONUS=/api/NmiBonificacionEmpleado
+VITE_EMPLOYEE_DISCOUNT=/api/NmiDeduccionEmpleado
