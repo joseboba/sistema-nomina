@@ -16,7 +16,6 @@ export const ExtraHoursPage = () => {
                 <CustomDatePicker label={'Fecha inicial'} name={'startDate'} xs={2}/>
                 <CustomDatePicker label={'Fecha final'} name={'endDate'} xs={2}/>
             </SearchBarLayout>
-
             <QueryContentLayout/>
         </>
     );
