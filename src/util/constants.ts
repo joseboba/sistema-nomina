@@ -10,7 +10,7 @@ import {
     Sick,
     Work,
     CardGiftcard,
-    CreditCardOff, Schedule
+    CreditCardOff, Schedule, Money
 } from "@mui/icons-material";
 import {ExtraHoursPage} from "../modules/administration/pages/ExtraHoursPage.tsx";
 
@@ -94,6 +94,11 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/extra-hours`,
                 name: 'Carga de horas extra',
                 NavIcon: Schedule
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/loan`,
+                name: 'Carga de prestamo',
+                NavIcon: Money
             }
         ]
     }

@@ -14,7 +14,10 @@ import {
 import {Add, Delete} from "@mui/icons-material";
 
 interface Props {
-
+    tableHeaders: string[];
+    tableBody: any[];
+    properties: string[];
+    onAdd: () => void;
 }
 
 const StyledTableCell = styled(TableCell)((_) => ({
@@ -31,7 +34,7 @@ const StyledTableCell = styled(TableCell)((_) => ({
     },
 }));
 
-export const QueryContentLayout = ({}: Props) => {
+export const QueryContentLayout = ({onAdd, tableHeaders, tableBody, properties}: Props) => {
     return (
         <>
             <Grid
@@ -50,93 +53,31 @@ export const QueryContentLayout = ({}: Props) => {
                         <Table stickyHeader>
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell align={'center'}>Header 1</StyledTableCell>
-                                    <StyledTableCell align={'center'}>Header 2</StyledTableCell>
-                                    <StyledTableCell align={'center'}>Header 3</StyledTableCell>
+                                    {
+                                        tableHeaders.map((tableHeader) => (
+                                            <StyledTableCell align={'center'} key={tableHeader}>{tableHeader}</StyledTableCell>
+                                        ))
+                                    }
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align={'center'}>Body 1</TableCell>
-                                    <TableCell align={'center'}>Body 2</TableCell>
-                                    <TableCell align={'center'}>Body 3</TableCell>
-                                </TableRow>
+                                {
+                                    tableBody.map((body, i) => (
+                                        <TableRow key={i}>
+                                            {
+                                                properties.map((propertie) => (
+                                                    <TableCell key={propertie} align={'center'}>{body[propertie]}</TableCell>
+                                                ))
+                                            }
+                                        </TableRow>
+                                    ))
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </Box>
 
-                <Button className={'button-add'}>
+                <Button className={'button-add'} onClick={onAdd}>
                     <Add/>
                 </Button>
 

@@ -12,3 +12,4 @@ export * from './BenefitTypePage.tsx';
 export * from './EmployeePage.tsx';
 export * from './EmployeeBonusPage.tsx';
 export * from './EmployeeDiscountPage.tsx';
+export * from './LoanUploadPage.tsx';

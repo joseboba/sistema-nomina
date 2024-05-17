@@ -9,7 +9,7 @@ import {
     DiscountTypePage,
     EmployeeBonusPage,
     EmployeeDiscountPage,
-    EmployeePage,
+    EmployeePage, LoanUploadPage,
     OtherIncomePage,
     PeriodPage,
     PositionPage,
@@ -82,5 +82,9 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'extra-hours',
         Component: ExtraHoursPage
+    },
+    {
+        path: 'loan',
+        Component: LoanUploadPage
     }
 ];

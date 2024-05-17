@@ -258,3 +258,10 @@ export interface ListComponentProps {
     onChangePage: (page: number, search: string) => void;
     items: Item[]
 }
+
+
+export interface LoanUploadInterface {
+    startDate: Moment,
+    endDate: Moment,
+    file: File | null;
+}
