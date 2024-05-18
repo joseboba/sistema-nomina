@@ -15,3 +15,5 @@ export * from './EmployeeDiscountPage.tsx';
 export * from './HoursPage.tsx';
 export * from './LoanUploadPage.tsx';
 export * from './ExtraHoursPage.tsx';
+export * from './ProductionUploadPage.tsx';
+export * from './SaleUploadPage.tsx';

@@ -285,3 +285,37 @@ export interface LoanUploadInterface {
     content: LoanQueryContent[];
     file: File | null;
 }
+
+export interface ProductionQueryContent {
+    proCodigo: number;
+    proCantidad: number;
+    proFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface ProductionUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: ProductionQueryContent[];
+    file: File | null;
+}
+
+export interface SaleQueryContent {
+    venCodigo: number;
+    venMonto: number;
+    venFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface SaleUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: SaleQueryContent[];
+    file: File | null;
+}

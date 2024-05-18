@@ -19,3 +19,5 @@ VITE_EMPLOYEE_DISCOUNT=/api/NmiDeduccionEmpleado
 VITE_HOURS_URI=/api/nmiHoras
 VITE_LOAN=/api/NmiPrestamo
 VITE_EXTRA_HOUR=/api/NmiHorasExtras
+VITE_PRODUCTION=/api/NmiProduccion
+VITE_SALE=/api/NmiVenta
