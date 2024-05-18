@@ -1,19 +1,26 @@
 import {TitleComponent} from "../components";
 import {QueryContentLayout, SearchBarLayout} from "../../../layout";
-import {CustomDatePicker, CustomSelect} from "../../../components/form";
+import {CustomDatePicker} from "../../../components/form";
 import {ChangeEvent, useRef} from "react";
 import {useExtraHourUploadStore} from "../../../hooks";
-import { Utilities } from "../../../util";
-import { ExtraHourDataTable } from "../../../interfaces";
-import { setEndDate, setExtraHours, setStartDate } from "../../../store/modules/administration";
-import moment, { Moment } from "moment";
+import {Utilities} from "../../../util"
+import moment from "moment";
 
 const tableHeaders = ['Empleado', 'Cantidad de horas', 'Fecha'];
 const properties = ['nombreEmpleado', 'cantidad', 'fecha'];
 
 export const ExtraHourUploadPage = () => {
 
-    const {startDate, endDate, changeStartDate, changeEndDate, uploadFile, empCodigo, extraHours, findExtraHours, cleanData} = useExtraHourUploadStore();
+    const {
+        startDate,
+        endDate,
+        changeStartDate,
+        changeEndDate,
+        uploadFile,
+        extraHours,
+        findExtraHours,
+        cleanData
+    } = useExtraHourUploadStore();
 
     const ref = useRef(null);
     const onAdd = () => {
@@ -21,7 +28,6 @@ export const ExtraHourUploadPage = () => {
     }
 
     const content = extraHours.map(extraHour => {
-        console.log("data " + JSON.stringify(extraHour));
         return {
             nombreEmpleado: Utilities.capitalizeFirstLetter(extraHour.empPrimerNombre!) + " " + Utilities.capitalizeFirstLetter(extraHour.empPrimerApellido),
             cantidad: extraHour.hexCantidad,
@@ -47,22 +53,14 @@ export const ExtraHourUploadPage = () => {
                     startDate,
                     endDate
                 }}
-                onSubmit={() => findExtraHours(startDate.format("DD/MM/YYYY"), endDate.format("DD/MM/YYYY"))}
+                onSubmit={() => console.log('')}
+                onClick={() => findExtraHours(startDate.format("DD/MM/YYYY"), endDate.format("DD/MM/YYYY"))}
                 onClean={() => {
                     cleanData([]);
-                    changeStartDate(moment().startOf("month")) 
-                    changeEndDate(moment().endOf("month"))}}
+                    changeStartDate(moment().startOf("month"))
+                    changeEndDate(moment().endOf("month"))
+                }}
             >
-                {/* <CustomSelect label={'Empleado'} name={'empCodigo'}>
-                {
-                    employeesByPosition.map(employee => (
-                        <MenuItem key={employee.epuCodigo} value={employee.epuCodigo}>
-                            {`${employee.empCodigo ? employee.empCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(employee.empPrimerNombre!)} 
-                             ${Utilities.capitalizeFirstLetter(employee.empPrimerApellido!)}`}
-                        </MenuItem>
-                    ))
-                }
-                </CustomSelect> */}
                 <CustomDatePicker
                     maxDate={endDate}
                     label={'Fecha inicial'}
