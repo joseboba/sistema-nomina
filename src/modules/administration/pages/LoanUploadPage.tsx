@@ -5,18 +5,19 @@ import {ChangeEvent, useRef} from "react";
 import {useLoanUploadStore} from "../../../hooks";
 
 const tableHeaders = ['Empleado', 'Total Prestamo', 'Cuota'];
-const properties = ['empNombre', 'preTotal', 'preCuota'];
-const content = [
-    {empNombre: 'Jose', preTotal: 10000, preCuota: 100},
-    {empNombre: 'Enrique', preTotal: 20000, preCuota: 200},
-    {empNombre: 'Bobadilla', preTotal: 30000, preCuota: 300},
-    {empNombre: 'Firulais', preTotal: 40000, preCuota: 400},
-    {empNombre: 'teletubi', preTotal: 50000, preCuota: 500},
-    {empNombre: 'alfred', preTotal: 60000, preCuota: 600},
-]
+const properties = ['empNombre', 'preMonto', 'preCuotaMensual'];
 export const LoanUploadPage = () => {
 
-    const {startDate, endDate, changeStartDate, changeEndDate, uploadFile} = useLoanUploadStore();
+    const {
+        startDate,
+        endDate,
+        content,
+        changeStartDate,
+        changeEndDate,
+        uploadFile,
+        listLoanContent,
+        clean
+    } = useLoanUploadStore();
 
     const ref = useRef(null);
     const onAdd = () => {
@@ -41,8 +42,9 @@ export const LoanUploadPage = () => {
                     startDate,
                     endDate
                 }}
-                onSubmit={() => console.log('')}
-                onClean={() => console.log('clean')}
+                onClick={() => listLoanContent(startDate, endDate)}
+                onSubmit={() => console.log('submit')}
+                onClean={() => clean()}
             >
                 <CustomDatePicker
                     maxDate={endDate}

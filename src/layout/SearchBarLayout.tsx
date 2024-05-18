@@ -10,6 +10,7 @@ interface Props {
     validationSchema?: any | (() => any);
     onSubmit: (values: FormikValues, formikHelpers: FormikHelpers<FormikValues>) => void;
     onClean: () => void;
+    onClick: () => void;
 }
 
 
@@ -18,6 +19,7 @@ export const SearchBarLayout = ({
                                     initialValues,
                                     validationSchema,
                                     onSubmit,
+                                    onClick,
                                     onClean,
                                 }: Props) => {
     return (
@@ -60,10 +62,10 @@ export const SearchBarLayout = ({
                         pl: 1.5
                       }}
                 >
-                    <IconButton>
+                    <IconButton onClick={onClick}>
                         <SearchOutlined />
                     </IconButton>
-                    <IconButton>
+                    <IconButton onClick={onClean}>
                         <CancelRounded style={{ color: 'red'  }}/>
                     </IconButton>
                 </Grid>

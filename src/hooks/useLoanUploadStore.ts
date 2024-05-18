@@ -4,7 +4,8 @@ import {getEnvVariables} from "../helpers";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreInterface} from "../store";
 import {PickerValidDate} from "@mui/x-date-pickers";
-import {setEndDate, setStartDate} from "../store/modules/administration";
+import {setLoanQueryContent, setEndDate, setStartDate, cleanLoanQuery} from "../store/modules/administration";
+import {Moment} from "moment";
 
 const {VITE_LOAN} = getEnvVariables();
 
@@ -23,6 +24,21 @@ export const useLoanUploadStore = () => {
                 }
             });
             await Utilities.successAlarm('Registro guardado');
+            await listLoanContent(loadUploadValues.startDate, loadUploadValues.endDate);
+        } catch (e) {
+            await Utilities.errorAlarm(e);
+        }
+    }
+
+    const listLoanContent = async (startDate: Moment, endDate: Moment) => {
+        try {
+            const params: {fechaInicio: string; fechaFinal: string} = {
+                fechaInicio: startDate.format('DD/MM/yyyy'),
+                fechaFinal: endDate.format('DD/MM/yyyy')
+            };
+
+            const { data } = await payrollApi.get(`${VITE_LOAN}`, {params});
+            dispatch(setLoanQueryContent(data));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
@@ -36,12 +52,18 @@ export const useLoanUploadStore = () => {
         dispatch(setEndDate({ endDate }));
     }
 
+    const clean = () => {
+        dispatch(cleanLoanQuery());
+    }
+
     return {
         ...loadUploadValues,
         loadUploadValues,
         uploadFile,
         changeStartDate,
-        changeEndDate
+        changeEndDate,
+        listLoanContent,
+        clean
     }
 
 }

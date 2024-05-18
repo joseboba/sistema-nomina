@@ -4,8 +4,9 @@ import moment from "moment";
 import {PickerValidDate} from "@mui/x-date-pickers";
 
 const initialState: LoanUploadInterface = {
-    startDate: moment(),
+    startDate: moment().startOf('month'),
     endDate: moment().endOf('month'),
+    content: [],
     file: null
 };
 
@@ -26,6 +27,15 @@ export const loanUploadSlice = createSlice({
             }
 
             state.endDate = payload.endDate;
+        },
+        setLoanQueryContent: (state, {payload}) => {
+            state.content = payload;
+        },
+        cleanLoanQuery: (state) => {
+            state.startDate = moment().startOf('month');
+            state.endDate = moment().endOf('month');
+            state.content = [];
+            state.file = null;
         }
     }
 });
@@ -33,5 +43,7 @@ export const loanUploadSlice = createSlice({
 
 export const {
     setStartDate,
-    setEndDate
+    setEndDate,
+    setLoanQueryContent,
+    cleanLoanQuery
 } = loanUploadSlice.actions;
