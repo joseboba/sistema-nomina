@@ -5,7 +5,9 @@ export interface OtherIncomeInterface {
     oinCodigo : number | null;
     epuCodigo : number | null;
     oinMonto : number;
-    oinFecha : Moment | string;  
+    oinFecha : Moment | string; 
+    empCodigo : number;
+    nombreEmpleado : string;
     page: Paging<OtherIncomeInterface> | null;
     items: Item[];
     params: {

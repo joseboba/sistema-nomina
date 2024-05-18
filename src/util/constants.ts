@@ -12,7 +12,6 @@ import {
     CardGiftcard,
     CreditCardOff, Schedule, Money
 } from "@mui/icons-material";
-import {ExtraHoursPage} from "../modules/administration/pages/ExtraHoursPage.tsx";
 
 export const ADMIN_BASE_PATH = '/admin';
 
