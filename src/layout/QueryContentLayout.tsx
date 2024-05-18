@@ -80,19 +80,6 @@ export const QueryContentLayout = ({onAdd, tableHeaders, tableBody, properties}:
                 <Button className={'button-add'} onClick={onAdd}>
                     <Add/>
                 </Button>
-
-                <Pagination
-                    className={'pagination'}
-                    count={10}
-                    hideNextButton={false}
-                    hidePrevButton={false}
-                    onChange={(_, page) => console.log(page)}
-                    color="primary"
-                    sx={{
-                        mr: 'auto',
-                        width: '50%'
-                    }}
-                />
             </Grid>
         </>
     )
