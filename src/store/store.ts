@@ -13,7 +13,8 @@ import {
     positionSlice,
     suspensionTypesSlice,
     employeeBonusSlice,
-    employeeDiscountSlice,
+    employeeDiscountSlice, loanUploadSlice,
+    extraHourUploadSlice,
     hoursSlice
 } from "./modules/administration";
 import {
@@ -32,7 +33,8 @@ import {
     PositionInterface,
     SuspensionTypeInterface,
     EmployeeBonusInterface,
-    EmployeeDiscountInterface,
+    EmployeeDiscountInterface, LoanUploadInterface,
+    ExtraHourUploadInterface,
     HoursInterface
 } from "../interfaces";
 import {sidenavSlice} from "./ui";
@@ -55,6 +57,8 @@ export interface StoreInterface {
     employeeBonus: EmployeeBonusInterface;
     employeeDiscount: EmployeeDiscountInterface;
     hours: HoursInterface;
+    loanUploadSlice: LoanUploadInterface;
+    extraHourUploadSlice : ExtraHourUploadInterface
 }
 
 export const store = configureStore({
@@ -74,7 +78,9 @@ export const store = configureStore({
         period: periodSlice.reducer,
         employeeBonus: employeeBonusSlice.reducer,
         employeeDiscount: employeeDiscountSlice.reducer,
-        hours: hoursSlice.reducer
+        hours: hoursSlice.reducer,
+        loanUploadSlice: loanUploadSlice.reducer,
+        extraHourUploadSlice : extraHourUploadSlice.reducer
     }
 });
 

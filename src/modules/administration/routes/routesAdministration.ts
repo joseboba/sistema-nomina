@@ -9,14 +9,14 @@ import {
     DiscountTypePage,
     EmployeeBonusPage,
     EmployeeDiscountPage,
-    EmployeePage,
+    EmployeePage, LoanUploadPage,
     OtherIncomePage,
     PeriodPage,
     PositionPage,
     SuspensionTypesPage,
-    HoursPage
+    HoursPage,
+    ExtraHourUploadPage
 } from "../pages";
-import {ExtraHoursPage} from "../pages/ExtraHoursPage.tsx";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -82,7 +82,11 @@ export const routesAdministration: ModuleRoute[] = [
     },
     {
         path: 'extra-hours',
-        Component: ExtraHoursPage
+        Component: ExtraHourUploadPage
+    },
+    {
+        path: 'loan',
+        Component: LoanUploadPage
     },
     {
         path: 'hours',

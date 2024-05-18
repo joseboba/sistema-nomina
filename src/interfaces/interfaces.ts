@@ -265,3 +265,23 @@ export interface ListComponentProps {
     onChangePage: (page: number, search: string) => void;
     items: Item[]
 }
+
+export interface LoanQueryContent {
+    preCodigo:        number;
+    empNombre:        string;
+    preMonto:         number;
+    preInteres:       number;
+    preCantidadMeses: number;
+    preCuotaMensual:  number;
+    preDescripcion:   string;
+    preMontoPagado:   number;
+    preFechaInicio:   string;
+}
+
+
+export interface LoanUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: LoanQueryContent[];
+    file: File | null;
+}

@@ -4,7 +4,7 @@ import {StoreInterface} from "../store";
 import {useEffect, useState} from "react";
 import {Utilities} from "../util";
 import {
-    cleanDepartmentData, cleanPositionData,
+    cleanPositionData,
     setPosition,
     setPositionPageResult,
     setPositionParams
@@ -18,7 +18,6 @@ const {VITE_POSITION_URI, VITE_DEPARTMENT_URI} = getEnvVariables();
 export const usePositionStore = () => {
 
     const [departments, setDepartments] = useState<DepartmentInterface[]>([]);
-
     const positionValues = useSelector((state: StoreInterface) => state.position);
     const dispatch = useDispatch();
 

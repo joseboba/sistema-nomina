@@ -20,7 +20,6 @@ export const useDepartmentStore = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('first entry');
         findAll('', 0);
     }, []);
 

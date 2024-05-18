@@ -13,3 +13,5 @@ export * from './employeeSlice.ts';
 export * from './employeeBonusSlice.ts';
 export * from './employeeDiscountSlice.ts';
 export * from './hoursSlice.ts';
+export * from './loanUploadSlice.ts';
+export * from './extraHourUploadSlice.ts';

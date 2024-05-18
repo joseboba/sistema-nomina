@@ -2,38 +2,27 @@ import {TitleComponent} from "../components";
 import {QueryContentLayout, SearchBarLayout} from "../../../layout";
 import {CustomDatePicker} from "../../../components/form";
 import {ChangeEvent, useRef} from "react";
-import {useExtraHourUploadStore} from "../../../hooks";
-import {Utilities} from "../../../util"
-import moment from "moment";
+import {useLoanUploadStore} from "../../../hooks";
 
-const tableHeaders = ['Empleado', 'Cantidad de horas', 'Fecha'];
-const properties = ['nombreEmpleado', 'cantidad', 'fecha'];
-
-export const ExtraHourUploadPage = () => {
+const tableHeaders = ['Empleado', 'Total Prestamo', 'Cuota'];
+const properties = ['empNombre', 'preMonto', 'preCuotaMensual'];
+export const LoanUploadPage = () => {
 
     const {
         startDate,
         endDate,
+        content,
         changeStartDate,
         changeEndDate,
         uploadFile,
-        extraHours,
-        findExtraHours,
-        cleanData
-    } = useExtraHourUploadStore();
+        listLoanContent,
+        clean
+    } = useLoanUploadStore();
 
     const ref = useRef(null);
     const onAdd = () => {
         ref.current?.click();
     }
-
-    const content = extraHours.map(extraHour => {
-        return {
-            nombreEmpleado: Utilities.capitalizeFirstLetter(extraHour.empPrimerNombre!) + " " + Utilities.capitalizeFirstLetter(extraHour.empPrimerApellido),
-            cantidad: extraHour.hexCantidad,
-            fecha: extraHour.hexFecha?.split(" ")[0]
-        }
-    });
 
     const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
@@ -46,20 +35,16 @@ export const ExtraHourUploadPage = () => {
 
     return (
         <>
-            <TitleComponent title={'Carga de horas extra'}/>
+            <TitleComponent title={'Carga de Prestamos'}/>
 
             <SearchBarLayout
                 initialValues={{
                     startDate,
                     endDate
                 }}
-                onSubmit={() => console.log('')}
-                onClick={() => findExtraHours(startDate.format("DD/MM/YYYY"), endDate.format("DD/MM/YYYY"))}
-                onClean={() => {
-                    cleanData([]);
-                    changeStartDate(moment().startOf("month"))
-                    changeEndDate(moment().endOf("month"))
-                }}
+                onClick={() => listLoanContent(startDate, endDate)}
+                onSubmit={() => console.log('submit')}
+                onClean={() => clean()}
             >
                 <CustomDatePicker
                     maxDate={endDate}
@@ -75,7 +60,7 @@ export const ExtraHourUploadPage = () => {
                     xs={2}
                     onChange={(value) => changeEndDate(value)}
                 />
-                <input ref={ref} onChange={handleFileChange} hidden type={'file'} id={'extraHoursFile'}/>
+                <input ref={ref} onChange={handleFileChange} hidden type={'file'} id={'loanFile'}/>
             </SearchBarLayout>
             <QueryContentLayout
                 tableHeaders={tableHeaders}
