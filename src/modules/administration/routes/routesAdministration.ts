@@ -13,7 +13,8 @@ import {
     OtherIncomePage,
     PeriodPage,
     PositionPage,
-    SuspensionTypesPage
+    SuspensionTypesPage,
+    HoursPage
 } from "../pages";
 import {ExtraHoursPage} from "../pages/ExtraHoursPage.tsx";
 
@@ -82,5 +83,9 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'extra-hours',
         Component: ExtraHoursPage
+    },
+    {
+        path: 'hours',
+        Component: HoursPage
     }
 ];

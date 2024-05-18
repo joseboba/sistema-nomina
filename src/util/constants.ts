@@ -94,6 +94,11 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/extra-hours`,
                 name: 'Carga de horas extra',
                 NavIcon: Schedule
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/hours`,
+                name: 'Registro de Horas',
+                NavIcon: Schedule
             }
         ]
     }

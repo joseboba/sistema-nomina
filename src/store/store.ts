@@ -14,6 +14,7 @@ import {
     suspensionTypesSlice,
     employeeBonusSlice,
     employeeDiscountSlice,
+    hoursSlice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -31,7 +32,8 @@ import {
     PositionInterface,
     SuspensionTypeInterface,
     EmployeeBonusInterface,
-    EmployeeDiscountInterface
+    EmployeeDiscountInterface,
+    HoursInterface
 } from "../interfaces";
 import {sidenavSlice} from "./ui";
 
@@ -52,6 +54,7 @@ export interface StoreInterface {
     period: PeriodInterface;
     employeeBonus: EmployeeBonusInterface;
     employeeDiscount: EmployeeDiscountInterface;
+    hours: HoursInterface;
 }
 
 export const store = configureStore({
@@ -70,7 +73,8 @@ export const store = configureStore({
         benefitType: benefitTypeSlice.reducer,
         period: periodSlice.reducer,
         employeeBonus: employeeBonusSlice.reducer,
-        employeeDiscount: employeeDiscountSlice.reducer
+        employeeDiscount: employeeDiscountSlice.reducer,
+        hours: hoursSlice.reducer
     }
 });
 

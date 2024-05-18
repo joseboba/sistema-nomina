@@ -16,3 +16,4 @@ VITE_BANK_URI=/api/NmiBanco
 VITE_ACCOUNT_TYPE_URI=/api/NmiTipoCuenta
 VITE_EMPLOYEE_BONUS=/api/NmiBonificacionEmpleado
 VITE_EMPLOYEE_DISCOUNT=/api/NmiDeduccionEmpleado
+VITE_HOURS_URI=/api/nmiHoras

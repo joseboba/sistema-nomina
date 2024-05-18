@@ -83,6 +83,13 @@ export interface EmployeeInterface {
     }
 }
 
+export interface HoursInterface {
+    hrsCodigo: number | null;
+    epuCodigo: number | null;
+    hrsHoraEntrada: Moment | string;
+    hrsHoraSalida: Moment | string;
+}
+
 export interface PositionInterface {
     pueCodigo: number | null;
     depCodigo: number | null;
