@@ -83,6 +83,13 @@ export interface EmployeeInterface {
     }
 }
 
+export interface HoursInterface {
+    hrsCodigo: number | null;
+    epuCodigo: number | null;
+    hrsHoraEntrada: Moment | string;
+    hrsHoraSalida: Moment | string;
+}
+
 export interface PositionInterface {
     pueCodigo: number | null;
     depCodigo: number | null;
@@ -276,5 +283,39 @@ export interface LoanUploadInterface {
     startDate: Moment;
     endDate: Moment;
     content: LoanQueryContent[];
+    file: File | null;
+}
+
+export interface ProductionQueryContent {
+    proCodigo: number;
+    proCantidad: number;
+    proFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface ProductionUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: ProductionQueryContent[];
+    file: File | null;
+}
+
+export interface SaleQueryContent {
+    venCodigo: number;
+    venMonto: number;
+    venFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface SaleUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: SaleQueryContent[];
     file: File | null;
 }

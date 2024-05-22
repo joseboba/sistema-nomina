@@ -95,8 +95,23 @@ export const NAVBAR_ROUTES: SideNavType = [
                 NavIcon: Schedule
             },
             {
+                to: `${ADMIN_BASE_PATH}/hours`,
+                name: 'Registro de Horas',
+                NavIcon: Schedule
+            },
+            {
                 to: `${ADMIN_BASE_PATH}/loan`,
                 name: 'Carga de prestamo',
+                NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/production`,
+                name: 'Carga de producción',
+                NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/sale`,
+                name: 'Carga de venta',
                 NavIcon: Money
             }
         ]
