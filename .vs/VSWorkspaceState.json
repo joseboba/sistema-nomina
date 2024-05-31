@@ -11,6 +11,6 @@
     "\\src\\store\\modules\\administration",
     "\\src\\ui"
   ],
-  "SelectedNode": "\\src\\modules\\administration\\pages\\EmployeePage.tsx",
+  "SelectedNode": "\\.envProd",
   "PreviewInSolutionExplorer": false
 }
