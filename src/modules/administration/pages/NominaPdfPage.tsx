@@ -25,7 +25,7 @@ export const NominaPdfPage = () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'horas_extra.pdf';
+        a.download = 'nomina.pdf';
         document.body.appendChild(a);
         a.click();
 
