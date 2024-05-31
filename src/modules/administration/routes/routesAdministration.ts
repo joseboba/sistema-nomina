@@ -17,8 +17,9 @@ import {
     HoursPage,
     ExtraHourUploadPage,
     ProductionUploadPage,
-    SaleUploadPage
+    SaleUploadPage, BankCsvPage, NominaPdfPage, PagoNominaPage
 } from "../pages";
+import {ExtraHourPdfPage} from "../pages/ExtraHourPdfPage.tsx";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -101,5 +102,21 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'sale',
         Component: SaleUploadPage
+    },
+    {
+        path: 'bank-csv',
+        Component: BankCsvPage
+    },
+    {
+        path: 'extra-hour-pdf',
+        Component: ExtraHourPdfPage
+    },
+    {
+        path: 'nomina-pdf',
+        Component: NominaPdfPage
+    },
+    {
+        path: 'pago-nomina',
+        Component: PagoNominaPage
     }
 ];

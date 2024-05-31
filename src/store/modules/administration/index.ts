@@ -17,3 +17,7 @@ export * from './loanUploadSlice.ts';
 export * from './extraHourUploadSlice.ts';
 export * from './productionUploadSlice.ts';
 export * from './saleUploadSlice.ts';
+export * from './bankCsvSlice.ts';
+export * from './extraHourPdfSlice.ts';
+export * from './nominaPdfSlice.ts';
+export * from './pagoNominaSlice.ts'

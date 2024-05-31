@@ -17,3 +17,6 @@ export * from './LoanUploadPage.tsx';
 export * from './ExtraHoursPage.tsx';
 export * from './ProductionUploadPage.tsx';
 export * from './SaleUploadPage.tsx';
+export * from './BankCsvPage.tsx';
+export * from './NominaPdfPage.tsx';
+export * from './PagoNominaPage.tsx';

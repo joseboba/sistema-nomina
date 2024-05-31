@@ -1,7 +1,13 @@
 import {useNavigate} from "react-router-dom";
 import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {SidNavItemInterface} from "../interfaces";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    setOpenBankCsv,
+    setOpenExtraHourCsv,
+    setOpenNominaPdf,
+    setOpenPagoNomina
+} from "../store/modules/administration";
 
 
 
@@ -9,9 +15,25 @@ export const SideNavItem = ({to, name, NavIcon}: SidNavItemInterface) => {
 
     const navigate = useNavigate();
     const sideNav = useSelector(state => state.sideNav);
-
+    const dispatch = useDispatch();
 
     const onNavigate = () => {
+        if (to.includes('bank-csv')) {
+            dispatch(setOpenBankCsv({open: true}));
+        }
+
+        if (to.includes('extra-hour-pdf')) {
+            dispatch(setOpenExtraHourCsv({open: true}));
+        }
+
+        if (to.includes('nomina-pdf')) {
+            dispatch(setOpenNominaPdf({open: true}));
+        }
+
+        if (to.includes('pago-nomina')) {
+            dispatch(setOpenPagoNomina({open: true}));
+        }
+
         navigate(to);
     }
 
