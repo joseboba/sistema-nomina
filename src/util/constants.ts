@@ -10,7 +10,7 @@ import {
     Sick,
     Work,
     CardGiftcard,
-    CreditCardOff, Schedule, Money
+    CreditCardOff, Schedule, Money, FoodBank
 } from "@mui/icons-material";
 
 export const ADMIN_BASE_PATH = '/admin';
@@ -123,6 +123,26 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/suspension`,
                 name: 'Suspensiones',
                 NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/bank-csv`,
+                name: 'Reporte de banco',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/extra-hour-pdf`,
+                name: 'Reporte de horas extra',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/nomina-pdf`,
+                name: 'Reporte de nomina',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/pago-nomina`,
+                name: 'Pago Nomina',
+                NavIcon: FoodBank
             }
         ]
     }

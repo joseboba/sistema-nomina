@@ -1,4 +1,4 @@
-VITE_BASE_URL=http://192.168.200.1/be
+VITE_BASE_URL=http://localhost:5254
 VITE_DEPARTMENT_URI=/api/NmiDepartamento
 VITE_BONIFICATION_URI=/api/NmiBonificacion
 VITE_SUSPENSION_TYPES_URI=/api/NmiTipoSuspension
@@ -23,3 +23,8 @@ VITE_PRODUCTION=/api/NmiProduccion
 VITE_SALE=/api/NmiVenta
 VITE_ABSENCE=/api/NmiAusencia
 VITE_SUSPENCION=/api/Suspencion
+VITE_SALE=/api/NmiVenta
+VITE_BANK_CSV_URI=/api/BancoCsv
+VITE_EXTRA_HOUR_CSV=/reporte-horas-extra
+VITE_NOMINA_PDF=/nomina
+VITE_PAGO_NOMINA=/api/PagoNomina

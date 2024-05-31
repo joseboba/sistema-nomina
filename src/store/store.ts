@@ -20,6 +20,10 @@ import {
     saleUploadSlice,
     absenceSlice,
     suspensionSlice
+    saleUploadSlice,
+    bankCsvSlice,
+    extraHourPdfSlice,
+    nominaPdfSlice, pagoNominaslice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -97,6 +101,11 @@ export const store = configureStore({
         saleUploadSlice: saleUploadSlice.reducer,
         absenceSlice: absenceSlice.reducer,
         suspensionSlice: suspensionSlice.reducer
+        saleUploadSlice: saleUploadSlice.reducer,
+        bankCsvSlice: bankCsvSlice.reducer,
+        extraHourPdfSlice: extraHourPdfSlice.reducer,
+        nominaPdfSlice: nominaPdfSlice.reducer,
+        pagoNominaslice: pagoNominaslice.reducer,
     }
 });
 
