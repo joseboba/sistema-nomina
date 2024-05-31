@@ -1,4 +1,4 @@
-import {DepartmentInterface, Paging, Item} from "../../../interfaces";
+import {DepartmentInterface, Paging} from "../../../interfaces";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Utilities} from "../../../util";
 

@@ -5,9 +5,9 @@ import {Utilities} from "../../../util/utilities.ts";
 
 const initialState: BonificationInterface  = {
     bonCodigo: 0,
-    bonNombre: '',
+    tdeNombre: '',
     bonDescripcion: '',
-    bonMonto: 0,
+    tdeMonto: 0,
     bonPorcentaje: 0,
     bonEstado: 1,
     page: {

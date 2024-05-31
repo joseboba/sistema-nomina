@@ -9,6 +9,8 @@ const initialState: OtherIncomeInterface  = {
     epuCodigo: 0,
     oinMonto: 0,
     oinFecha: moment(),
+    empCodigo: 0,
+    nombreEmpleado :"",
     page: {
         hasNext: false,
         hasPrevious: false,
@@ -33,8 +35,8 @@ export const otherIncomeSlice = createSlice({
             state.page = payload;
             state.items = Utilities.generateItems(payload.content, {
                 itemCodeKey: 'oinCodigo',
-                itemPrimaryTextKey: 'oinCodigo',
-                itemSecondaryTextKey: 'oinMonto',
+                itemPrimaryTextKey: 'empCodigo',
+                itemSecondaryTextKey: 'nombreEmpleado',
             });
         },
         clearDataOtherIncome: (state) => {

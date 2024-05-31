@@ -1,5 +1,17 @@
 import {SideNavType} from "../interfaces";
-import {Badge, ReceiptLong, Sick, CurrencyExchange, Work, CalendarMonth, HourglassTop, Discount, Paid} from "@mui/icons-material";
+import {
+    Badge,
+    CalendarMonth,
+    CurrencyExchange,
+    Discount,
+    HourglassTop,
+    Paid,
+    ReceiptLong,
+    Sick,
+    Work,
+    CardGiftcard,
+    CreditCardOff, Schedule, Money, FoodBank
+} from "@mui/icons-material";
 
 export const ADMIN_BASE_PATH = '/admin';
 
@@ -66,6 +78,61 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/employee`,
                 name: "Empleado",
                 NavIcon: Badge
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee-bonification`,
+                name: 'Empleado Bonificación',
+                NavIcon: CardGiftcard
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/employee-discount`,
+                name: 'Empleado Descuento',
+                NavIcon: CreditCardOff
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/extra-hours`,
+                name: 'Carga de horas extra',
+                NavIcon: Schedule
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/hours`,
+                name: 'Registro de Horas',
+                NavIcon: Schedule
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/loan`,
+                name: 'Carga de prestamo',
+                NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/production`,
+                name: 'Carga de producción',
+                NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/sale`,
+                name: 'Carga de venta',
+                NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/bank-csv`,
+                name: 'Reporte de banco',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/extra-hour-pdf`,
+                name: 'Reporte de horas extra',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/nomina-pdf`,
+                name: 'Reporte de nomina',
+                NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/pago-nomina`,
+                name: 'Pago Nomina',
+                NavIcon: FoodBank
             }
         ]
     }

@@ -83,6 +83,13 @@ export interface EmployeeInterface {
     }
 }
 
+export interface HoursInterface {
+    hrsCodigo: number | null;
+    epuCodigo: number | null;
+    hrsHoraEntrada: Moment | string;
+    hrsHoraSalida: Moment | string;
+}
+
 export interface PositionInterface {
     pueCodigo: number | null;
     depCodigo: number | null;
@@ -118,6 +125,81 @@ export interface AbsenceTypeInterface {
     tauGoceSalario: number;
     page: Paging<AbsenceTypeInterface> | null;
     items: Item[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface EmployeeBonusNoAssociated {
+    bonCodigo:      number;
+    bonNombre:      string;
+    bonDescripcion: string;
+    bonMonto:       number;
+    bonPorcentaje:  number;
+    bonEstado:      number;
+}
+
+export interface EmployeeBonusAssociated {
+    empCodigo:             number;
+    epuCodigo:             number;
+    empBonificacionCodigo: number;
+    eboEstado:             number;
+    bonCodigo:             number;
+    bonNombre:             string;
+    bonDescripcion:        string;
+    bonMonto:              number;
+    bonPorcentaje:         number;
+    bonEstado:             number;
+}
+
+export interface EmployeeBonusInterface {
+    empCodigo: number;
+    bonCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    bonusNoAssociated: EmployeeBonusNoAssociated[];
+    bonusAssociated: EmployeeBonusAssociated[];
+    params: {
+        search: string;
+        page: number;
+    }
+}
+
+export interface EmployeeDiscountNoAssociated {
+    tdeCodigo:      number;
+    tdeNombre:      string;
+    tdeDescripcion: string;
+    tdeMonto:       number;
+    tdePorcentaje:  number;
+    tdeEstado:      number;
+}
+
+export interface EmployeeDiscountAssociated {
+    empCodigo:      number;
+    epuCodigo:      number;
+    demCodigo:      number;
+    demEstado:      number;
+    tdeCodigo:      number;
+    tdeNombre:      string;
+    tdeDescripcion: string;
+    tdeMonto:       number;
+    tdePorcentaje:  number;
+    tdeEstado:      number;
+}
+
+
+export interface EmployeeDiscountInterface {
+    empCodigo: number;
+    tdeCodigo: number | null;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    page: Paging<EmployeeInterface> | null;
+    items: Item[];
+    discountAssociated: EmployeeDiscountAssociated[];
+    discountNoAssociated: EmployeeDiscountNoAssociated[];
     params: {
         search: string;
         page: number;
@@ -176,9 +258,64 @@ export interface ListComponentProps {
     totalPageCount: number | undefined;
     hasNext: boolean;
     hasPrevious: boolean;
+    useDelete: boolean;
     onSelectItem: (code: string | number) => void;
     onDeleteItem: (code: string | number) => void;
     onChangeSearch: (search: string) => void;
     onChangePage: (page: number, search: string) => void;
     items: Item[]
+}
+
+export interface LoanQueryContent {
+    preCodigo:        number;
+    empNombre:        string;
+    preMonto:         number;
+    preInteres:       number;
+    preCantidadMeses: number;
+    preCuotaMensual:  number;
+    preDescripcion:   string;
+    preMontoPagado:   number;
+    preFechaInicio:   string;
+}
+
+
+export interface LoanUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: LoanQueryContent[];
+    file: File | null;
+}
+
+export interface ProductionQueryContent {
+    proCodigo: number;
+    proCantidad: number;
+    proFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface ProductionUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: ProductionQueryContent[];
+    file: File | null;
+}
+
+export interface SaleQueryContent {
+    venCodigo: number;
+    venMonto: number;
+    venFecha: string;
+    empPrimerNombre: string;
+    empSegundoNombre: string;
+    empPrimerApellido: string;
+    empSegundoApellido: string;
+}
+
+export interface SaleUploadInterface {
+    startDate: Moment;
+    endDate: Moment;
+    content: SaleQueryContent[];
+    file: File | null;
 }

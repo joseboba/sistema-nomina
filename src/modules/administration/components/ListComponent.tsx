@@ -15,7 +15,8 @@ export const ListComponent = ({
                                   onChangePage,
                                   onChangeSearch,
                                   onSelectItem,
-                                  onDeleteItem
+                                  onDeleteItem,
+                                  useDelete = true
                               }: ListComponentProps) => {
     const [search, setSearch] = useState('');
     const handleSearch = ({target}) => {
@@ -58,6 +59,7 @@ export const ListComponent = ({
                     {
                         items.map((value) =>
                                 <ListItemComponent
+                                    useDelete={useDelete}
                                     key={value.itemCode}
                                     {...value}
                                     onSelect={(code) => onSelectItem(code)}

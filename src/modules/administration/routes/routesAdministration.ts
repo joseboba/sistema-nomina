@@ -1,5 +1,25 @@
 import {ModuleRoute} from "../../../interfaces";
-import { BonificacionPage, DepartmentPage, SuspensionTypesPage, OtherIncomePage, PositionPage, PeriodPage, AbsenceTypePage, EmployeePage, DeductionTypePage, DiscountTypePage, BenefitTypePage, CurrencyTypePage} from "../pages";
+import {
+    AbsenceTypePage,
+    BenefitTypePage,
+    BonificacionPage,
+    CurrencyTypePage,
+    DeductionTypePage,
+    DepartmentPage,
+    DiscountTypePage,
+    EmployeeBonusPage,
+    EmployeeDiscountPage,
+    EmployeePage, LoanUploadPage,
+    OtherIncomePage,
+    PeriodPage,
+    PositionPage,
+    SuspensionTypesPage,
+    HoursPage,
+    ExtraHourUploadPage,
+    ProductionUploadPage,
+    SaleUploadPage, BankCsvPage, NominaPdfPage, PagoNominaPage
+} from "../pages";
+import {ExtraHourPdfPage} from "../pages/ExtraHourPdfPage.tsx";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -50,5 +70,53 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'employee',
         Component: EmployeePage
+    },
+    {
+        path: 'employee-bonification',
+        Component: EmployeeBonusPage
+    },
+    {
+        path: 'discountType',
+        Component: DiscountTypePage
+    },
+    {
+        path: 'employee-discount',
+        Component: EmployeeDiscountPage
+    },
+    {
+        path: 'extra-hours',
+        Component: ExtraHourUploadPage
+    },
+    {
+        path: 'loan',
+        Component: LoanUploadPage
+    },
+    {
+        path: 'hours',
+        Component: HoursPage
+    },
+    {
+        path: 'production',
+        Component: ProductionUploadPage
+    },
+    {
+        path: 'sale',
+        Component: SaleUploadPage
+    },
+    {
+        path: 'bank-csv',
+        Component: BankCsvPage
+    },
+    {
+        path: 'extra-hour-pdf',
+        Component: ExtraHourPdfPage
+    },
+    {
+        path: 'nomina-pdf',
+        Component: NominaPdfPage
+    },
+    {
+        path: 'pago-nomina',
+        Component: PagoNominaPage
     }
 ];
