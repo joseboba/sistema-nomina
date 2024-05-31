@@ -17,7 +17,9 @@ import {
     HoursPage,
     ExtraHourUploadPage,
     ProductionUploadPage,
-    SaleUploadPage
+    SaleUploadPage,
+    AbsencePage,
+    SuspensionPage
 } from "../pages";
 
 
@@ -101,5 +103,13 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'sale',
         Component: SaleUploadPage
+    },
+    {
+        path: 'absence',
+        Component: AbsencePage
+    },
+    {
+        path: 'suspension',
+        Component: SuspensionPage
     }
 ];

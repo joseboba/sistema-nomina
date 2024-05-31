@@ -113,6 +113,16 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/sale`,
                 name: 'Carga de venta',
                 NavIcon: Money
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/absence`,
+                name: 'Ausenacias',
+                NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/suspension`,
+                name: 'Suspensiones',
+                NavIcon: Discount
             }
         ]
     }

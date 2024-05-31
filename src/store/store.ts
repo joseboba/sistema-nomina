@@ -17,7 +17,9 @@ import {
     extraHourUploadSlice,
     hoursSlice,
     productionUploadSlice,
-    saleUploadSlice
+    saleUploadSlice,
+    absenceSlice,
+    suspensionSlice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -39,7 +41,9 @@ import {
     ExtraHourUploadInterface,
     HoursInterface,
     ProductionUploadInterface,
-    SaleUploadInterface
+    SaleUploadInterface,
+    AbsenceInterface,
+    SuspensionInterface
 } from "../interfaces";
 import {sidenavSlice} from "./ui";
 
@@ -65,6 +69,8 @@ export interface StoreInterface {
     extraHourUploadSlice : ExtraHourUploadInterface;
     productionUploadSlice: ProductionUploadInterface;
     saleUploadSlice: SaleUploadInterface;
+    absence: AbsenceInterface;
+    suspension: SuspensionInterface;
 }
 
 export const store = configureStore({
@@ -88,7 +94,9 @@ export const store = configureStore({
         loanUploadSlice: loanUploadSlice.reducer,
         extraHourUploadSlice : extraHourUploadSlice.reducer,
         productionUploadSlice: productionUploadSlice.reducer,
-        saleUploadSlice: saleUploadSlice.reducer
+        saleUploadSlice: saleUploadSlice.reducer,
+        absenceSlice: absenceSlice.reducer,
+        suspensionSlice: suspensionSlice.reducer
     }
 });
 

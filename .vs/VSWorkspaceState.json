@@ -2,11 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components\\form",
-    "\\src\\layout",
-    "\\src\\modules\\administration\\components",
-    "\\src\\ui\\components"
+    "\\src\\modules",
+    "\\src\\modules\\administration",
+    "\\src\\modules\\administration\\pages",
+    "\\src\\routes",
+    "\\src\\store",
+    "\\src\\store\\modules",
+    "\\src\\store\\modules\\administration",
+    "\\src\\ui"
   ],
-  "SelectedNode": "\\.env",
+  "SelectedNode": "\\src\\modules\\administration\\pages\\EmployeePage.tsx",
   "PreviewInSolutionExplorer": false
 }

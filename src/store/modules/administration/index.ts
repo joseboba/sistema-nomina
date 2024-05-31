@@ -17,3 +17,5 @@ export * from './loanUploadSlice.ts';
 export * from './extraHourUploadSlice.ts';
 export * from './productionUploadSlice.ts';
 export * from './saleUploadSlice.ts';
+export * from './absenceSlice.ts';
+export * from './suspensionSlice.ts';
