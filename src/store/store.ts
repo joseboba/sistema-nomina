@@ -17,7 +17,10 @@ import {
     extraHourUploadSlice,
     hoursSlice,
     productionUploadSlice,
-    saleUploadSlice
+    saleUploadSlice,
+    bankCsvSlice,
+    extraHourPdfSlice,
+    nominaPdfSlice, pagoNominaslice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -88,7 +91,11 @@ export const store = configureStore({
         loanUploadSlice: loanUploadSlice.reducer,
         extraHourUploadSlice : extraHourUploadSlice.reducer,
         productionUploadSlice: productionUploadSlice.reducer,
-        saleUploadSlice: saleUploadSlice.reducer
+        saleUploadSlice: saleUploadSlice.reducer,
+        bankCsvSlice: bankCsvSlice.reducer,
+        extraHourPdfSlice: extraHourPdfSlice.reducer,
+        nominaPdfSlice: nominaPdfSlice.reducer,
+        pagoNominaslice: pagoNominaslice.reducer,
     }
 });
 
