@@ -18,8 +18,9 @@ import {StoreInterface} from "../store";
 const {VITE_EMPLOYEE_URI, VITE_EMPLOYEE_DISCOUNT} = getEnvVariables();
 
 export interface DiscountAssociation {
+    demCodigo: number;
     tdeCodigo: number | null;
-    demEstado: boolean;
+    demEstado: any;
     empCodigo: number;
 }
 
@@ -138,9 +139,10 @@ export const useEmployeeDiscountStore = () => {
             const newData = {...employeeDiscountValues, tdeCodigo};
             dispatch(setEmployeeDiscount(newData));
             const bonusAssociation: DiscountAssociation = {
+                demCodigo: 1,
                 empCodigo,
                 tdeCodigo,
-                demEstado: true
+                demEstado: 1
             };
             await payrollApi.post(`${VITE_EMPLOYEE_DISCOUNT}`, bonusAssociation);
             await findById(empCodigo);

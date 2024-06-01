@@ -55,11 +55,6 @@ export const NAVBAR_ROUTES: SideNavType = [
                 NavIcon: HourglassTop
             },
             {
-                to: `${ADMIN_BASE_PATH}/discountType`,
-                name: "Tipos de descuentos",
-                NavIcon: Discount
-            },
-            {
                 to: `${ADMIN_BASE_PATH}/deductionType`,
                 name: "Tipos de deducciones",
                 NavIcon: Discount
@@ -86,7 +81,7 @@ export const NAVBAR_ROUTES: SideNavType = [
             },
             {
                 to: `${ADMIN_BASE_PATH}/employee-discount`,
-                name: 'Empleado Descuento',
+                name: 'Empleado Deducción',
                 NavIcon: CreditCardOff
             },
             {
