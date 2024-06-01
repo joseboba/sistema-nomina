@@ -14,17 +14,15 @@ export const SuspensionForm = () => {
     const {
         susCodigo,
         epuCodigo,
-        tdsCodigo,
         tsuCodigo,
         susFechaSalida = moment().toDate(),
         susFechaRegreso = moment().toDate(),
-        susMotivo = "",
+        susEstado,
         suspensionValues,
         saveOrUpdate,
         cleanForm,
         employeesByPosition,
-        suspensionType,
-        deductionType
+        suspensionType
     } = useSuspensionStore();
 
     const onClean = () => {
@@ -32,20 +30,23 @@ export const SuspensionForm = () => {
     }
 
     const onSubmit = async (values: FormikValues) => {
-        await saveOrUpdate({...values, susCodigo});
+        await saveOrUpdate({...values, susCodigo, susEstado});
     }
 
     const onChangeStatus = async () => {
-        await saveOrUpdate({...suspensionValues});
+        await saveOrUpdate({...suspensionValues, susEstado: (susEstado === 1) ? 0 : 1 });
     }
 
     return (
         <FormLayout
             update={!!susCodigo}
             onSubmit={onSubmit}
-            initialValues={{susCodigo, epuCodigo, tdsCodigo, tsuCodigo, susFechaSalida, susFechaRegreso, susMotivo}}
+            initialValues={{susCodigo, epuCodigo, tsuCodigo, susFechaSalida, susFechaRegreso, susEstado}}
             validationSchema={suspensionValidationSchema}
             onClean={onClean}
+            useStatus={!!susCodigo}
+            statusActive={susEstado === 1}
+            onChangeStatus={onChangeStatus}
         >
             <CustomSelect label={'Empleado'} name={'epuCodigo'}>
                 {
@@ -66,19 +67,10 @@ export const SuspensionForm = () => {
                     ))
                 }
             </CustomSelect>
-            <CustomSelect label={'Tipo de deduccion'} name={'tdsCodigo'}>
-                {
-                    deductionType.map(deduction => (
-                        <MenuItem key={deduction.tdsCodigo} value={deduction.tdsCodigo}>
-                            {`${deduction.tdsCodigo ? deduction.tdsCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(deduction.tdsNombre!)} `}
-                        </MenuItem>
-                    ))
-                }
-            </CustomSelect>
+            
 
             <CustomDatePicker label={'Fecha de inicio de suspension'} name={'susFechaSalida'} ></CustomDatePicker>
             <CustomDatePicker label={'Fecha de fin de suspension'} name={'susFechaRegreso'} ></CustomDatePicker>
-            <CustomInputText label={'Motivo'} name={'susMotivo'} type="text" />
         </FormLayout>
     )
 }

@@ -11,7 +11,7 @@ export const SuspensionPage = () => {
         <>
             <TitleComponent title={'Suspensiones'}/>
             <Grid container spacing={2}>
-                <Grid item xs={7}>
+                <Grid item xs={3}>
                     <ListComponent
                         {...suspensionValues.page}
                         onSelectItem={code => findById(+code)}
@@ -21,7 +21,7 @@ export const SuspensionPage = () => {
                         items={suspensionValues.items}
                     />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={9}>
                     <SuspensionForm/>
                 </Grid>
             </Grid>

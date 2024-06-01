@@ -3,7 +3,7 @@ import {StoreInterface} from "../store";
 import {useEffect, useState} from "react";
 import {getEnvVariables, parsePagination} from "../helpers";
 import {payrollApi} from "../api";
-import {EmployeeByPositionInteface, SuspensionInterface, SuspensionTypesInterface, DeductionTypesInterface} from "../interfaces";
+import {EmployeeByPositionInteface, SuspensionInterface, SuspensionTypesInterface} from "../interfaces";
 import {
     clearDataSuspension,
     setSuspension,
@@ -18,7 +18,7 @@ export const useSuspensionStore = () => {
 
     const [employeesByPosition, setEmployeesByPosition] = useState<EmployeeByPositionInteface[]>([]);
     const [suspensionType, setSuspensionType] = useState<SuspensionTypesInterface[]>([]);
-    const [deductionType, setDeductionType] = useState<DeductionTypesInterface[]>([]);
+   
 
     const suspensionValues = useSelector((state: StoreInterface) => state.suspension);
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const useSuspensionStore = () => {
     useEffect(() => {
         findAll('', 0);
         getAllEmployees();
-        getAllDeductionType();
+        
         getAllSuspensionType();
     }, []);
 
@@ -113,7 +113,7 @@ export const useSuspensionStore = () => {
             const { data } = await payrollApi.get(`${VITE_SUSPENSION}/tiposSuspension`);
             const defaultData: SuspensionTypesInterface[] = [{
                 tsuCodigo: 0,
-                tsuNombre: 'Seleccione un tipo de ausencia'
+                tsuNombre: 'Seleccione un tipo de Suspension'
             }];
             setSuspensionType([...defaultData, ...data]);
         } catch (e) {
@@ -121,18 +121,7 @@ export const useSuspensionStore = () => {
         }
     }
 
-    const getAllDeductionType = async () => {
-        try {
-            const { data } = await payrollApi.get(`${VITE_SUSPENSION}/tiposDeduccion`);
-            const defaultData: DeductionTypesInterface[] = [{
-                tdsCodigo: 0,
-                tdsNombre: 'Seleccione un tipo de ausencia'
-            }];
-            setDeductionType([...defaultData, ...data]);
-        } catch (e) {
-            await Utilities.errorAlarm(e);
-        }
-    }
+
 
     return {
         ...suspensionValues,
@@ -143,7 +132,6 @@ export const useSuspensionStore = () => {
         remove,
         cleanForm,
         employeesByPosition,
-        suspensionType,
-        deductionType
+        suspensionType
     }
 }

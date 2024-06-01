@@ -7,12 +7,14 @@ import moment from "moment";
 const initialState: AbsenceInterface  = {
     ausCodigo: 0,
     tauCodigo: 0,
+    tdsCodigo: 0,
     epuCodigo: 0,
     ausFechaSalida: moment(),
     ausFechaRegreso: moment(),
     empCodigo: 0,
     nombreEmpleado: "",
     nombreTipoAusencia: "",
+    nombreTipoDescuento: "",
     page: {
         hasNext: false,
         hasPrevious: false,
@@ -44,6 +46,7 @@ export const absenceSlice = createSlice({
         clearDataAbsence: (state) => {
             state.ausCodigo = 0;
             state.epuCodigo = 0;
+            state.tdsCodigo = 0;
             state.tauCodigo = 0;
             state.ausFechaSalida = moment();
             state.ausFechaRegreso = moment();
@@ -52,6 +55,7 @@ export const absenceSlice = createSlice({
             console.log(payload);
             state.ausCodigo = payload.ausCodigo;
             state.epuCodigo = payload.epuCodigo;
+            state.tdsCodigo = payload.tdsCodigo;
             state.tauCodigo = payload.tauCodigo;
             state.ausFechaSalida = moment(payload.ausFechaSalida, "DD-MM-YYYY");
             state.ausFechaRegreso = moment(payload.ausFechaRegreso, "DD-MM-YYYY");

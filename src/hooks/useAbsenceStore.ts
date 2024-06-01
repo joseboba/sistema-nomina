@@ -3,7 +3,7 @@ import {StoreInterface} from "../store";
 import {useEffect, useState} from "react";
 import {getEnvVariables, parsePagination} from "../helpers";
 import {payrollApi} from "../api";
-import {EmployeeByPositionInteface, AbsenceInterface, AbsenceTypesInterface} from "../interfaces";
+import { EmployeeByPositionInteface, AbsenceInterface, AbsenceTypesInterface, DeductionTypesInterface } from "../interfaces";
 import {
     clearDataAbsence,
     setAbsence,
@@ -18,6 +18,7 @@ export const useAbsenceStore = () => {
 
     const [employeesByPosition, setEmployeesByPosition] = useState<EmployeeByPositionInteface[]>([]);
     const [absenceType, setAbsenceType] = useState<AbsenceTypesInterface[]>([]);
+    const [deductionType, setDeductionType] = useState<DeductionTypesInterface[]>([]);
     const absenceValues = useSelector((state: StoreInterface) => state.absence);
     const dispatch = useDispatch();
 
@@ -25,6 +26,7 @@ export const useAbsenceStore = () => {
         findAll('', 0);
         getAllEmployees();
         getAllAbsenceType();
+        getAllDeductionType();
     }, []);
 
 
@@ -109,12 +111,26 @@ export const useAbsenceStore = () => {
         try {
             const { data } = await payrollApi.get(`${VITE_ABSENCE}/tiposAusencia`);
             const defaultData: AbsenceTypesInterface[] = [{tauCodigo: 0,
-                    tauNombre: 'Seleccione un tipo de ausencia'}];
+                    tauNombre: 'Seleccione un tipo de Ausencia'}];
             setAbsenceType([...defaultData, ...data]);
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
     }
+
+    const getAllDeductionType = async () => {
+        try {
+            const { data } = await payrollApi.get(`${VITE_ABSENCE}/tiposDeduccion`);
+            const defaultData: DeductionTypesInterface[] = [{
+                tdsCodigo: 0,
+                tdsNombre: 'Seleccione un tipo de Descuento'
+            }];
+            setDeductionType([...defaultData, ...data]);
+        } catch (e) {
+            await Utilities.errorAlarm(e);
+        }
+    }
+
     return {
         ...absenceValues,
         absenceValues,
@@ -124,6 +140,7 @@ export const useAbsenceStore = () => {
         remove,
         cleanForm,
         employeesByPosition,
-        absenceType
+        absenceType,
+        deductionType
     }
 }

@@ -7,15 +7,13 @@ import moment from "moment";
 const initialState: SuspensionInterface  = {
     susCodigo: 0,
     tsuCodigo: 0,
-    tdsCodigo: 0,
     epuCodigo: 0,
     susFechaSalida: moment(),
     susFechaRegreso: moment(),
-    susMotivo:"",
+    susEstado: 1,
     empCodigo: 0,
     nombreEmpleado: "",
     nombreTipoSuspension: "",
-    nombreTipoDescuento: "",
     page: {
         hasNext: false,
         hasPrevious: false,
@@ -48,19 +46,18 @@ export const suspensionSlice = createSlice({
             state.susCodigo = 0;
             state.epuCodigo = 0;
             state.tsuCodigo = 0;
-            state.tdsCodigo = 0;
             state.susFechaSalida = moment();
             state.susFechaRegreso = moment();
-            state.susMotivo = ""
+            state.susEstado = 1;
         },
         setSuspension: (state, {payload}: PayloadAction<SuspensionInterface>) => {
             console.log(payload);
             state.susCodigo = payload.susCodigo;
             state.epuCodigo = payload.epuCodigo;
             state.tsuCodigo = payload.tsuCodigo;
-            state.tdsCodigo = payload.tdsCodigo;
             state.susFechaSalida = moment(payload.susFechaSalida, "DD-MM-YYYY");
             state.susFechaRegreso = moment(payload.susFechaRegreso, "DD-MM-YYYY");
+            state.susEstado = payload.susEstado;
         },
         setParamsSuspension: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
             state.params.search = payload.search;

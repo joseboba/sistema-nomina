@@ -14,6 +14,7 @@ export const AbsenceForm = () => {
     const {
         ausCodigo,
         tauCodigo,
+        tdsCodigo,
         epuCodigo,
         ausFechaSalida = moment().toDate(),
         ausFechaRegreso = moment().toDate(),
@@ -21,8 +22,8 @@ export const AbsenceForm = () => {
         saveOrUpdate,
         cleanForm,
         employeesByPosition,
-        absenceType
-
+        absenceType,
+        deductionType
     } = useAbsenceStore();
 
     const onClean = () => {
@@ -41,9 +42,11 @@ export const AbsenceForm = () => {
         <FormLayout
             update={!!ausCodigo}
             onSubmit={onSubmit}
-            initialValues={{ ausCodigo, tauCodigo, epuCodigo, ausFechaSalida, ausFechaRegreso }}
+            initialValues={{ ausCodigo, tauCodigo, tdsCodigo, epuCodigo, ausFechaSalida, ausFechaRegreso }}
             validationSchema={absenceValidationSchema}
             onClean={onClean}
+            useStatus={!!ausCodigo}
+            onChangeStatus={onChangeStatus}
         >
             
             <CustomSelect label={'Empleado'} name={'epuCodigo'}>
@@ -61,6 +64,15 @@ export const AbsenceForm = () => {
                     absenceType.map(absencetype => (
                         <MenuItem key={absencetype.tauCodigo} value={absencetype.tauCodigo}>
                             {`${absencetype.tauCodigo ? absencetype.tauCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(absencetype.tauNombre!)} `}
+                        </MenuItem>
+                    ))
+                }
+            </CustomSelect>
+            <CustomSelect label={'Tipo de deduccion'} name={'tdsCodigo'}>
+                {
+                    deductionType.map(deduction => (
+                        <MenuItem key={deduction.tdsCodigo} value={deduction.tdsCodigo}>
+                            {`${deduction.tdsCodigo ? deduction.tdsCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(deduction.tdsNombre!)} `}
                         </MenuItem>
                     ))
                 }

@@ -116,7 +116,7 @@ export const NAVBAR_ROUTES: SideNavType = [
             },
             {
                 to: `${ADMIN_BASE_PATH}/absence`,
-                name: 'Ausenacias',
+                name: 'Ausencias',
                 NavIcon: Discount
             },
             {
