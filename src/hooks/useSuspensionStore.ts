@@ -3,38 +3,42 @@ import {StoreInterface} from "../store";
 import {useEffect, useState} from "react";
 import {getEnvVariables, parsePagination} from "../helpers";
 import {payrollApi} from "../api";
-import {EmployeeByPositionInteface, OtherIncomeInterface} from "../interfaces";
+import {EmployeeByPositionInteface, SuspensionInterface, SuspensionTypesInterface, DeductionTypesInterface} from "../interfaces";
 import {
-    clearDataOtherIncome,
-    setOtherIncome,
-    setPageResultOtherIncome,
-    setParamsOtherIncome
+    clearDataSuspension,
+    setSuspension,
+    setPageResultSuspension,
+    setParamsSuspension
 } from "../store/modules/administration";
 import {Utilities} from "../util";
 
-const {VITE_OTHER_INCOME_URI} = getEnvVariables();
+const {VITE_SUSPENSION} = getEnvVariables();
 
-export const useOtherIncomeStore = () => {
+export const useSuspensionStore = () => {
 
     const [employeesByPosition, setEmployeesByPosition] = useState<EmployeeByPositionInteface[]>([]);
+    const [suspensionType, setSuspensionType] = useState<SuspensionTypesInterface[]>([]);
+    const [deductionType, setDeductionType] = useState<DeductionTypesInterface[]>([]);
 
-    const otherIncomeValues = useSelector((state: StoreInterface) => state.otherIncome);
+    const suspensionValues = useSelector((state: StoreInterface) => state.suspension);
     const dispatch = useDispatch();
 
     useEffect(() => {
         findAll('', 0);
         getAllEmployees();
+        getAllDeductionType();
+        getAllSuspensionType();
     }, []);
 
 
     const findAll = async (search: string, page: number) => {
         try {
             const params = {search, page, size: 10};
-            dispatch(setParamsOtherIncome(params));
-            const {data, headers} = await payrollApi.get(`${VITE_OTHER_INCOME_URI}`, {params});
-            const response = parsePagination<OtherIncomeInterface>(headers);
+            dispatch(setParamsSuspension(params));
+            const {data, headers} = await payrollApi.get(`${VITE_SUSPENSION}`, {params});
+            const response = parsePagination<SuspensionInterface>(headers);
             response.content = data;
-            dispatch(setPageResultOtherIncome(response));
+            dispatch(setPageResultSuspension(response));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
@@ -42,29 +46,30 @@ export const useOtherIncomeStore = () => {
 
     const findById = async (code: number) => {
         try {
-            const {data} = await payrollApi.get(`${VITE_OTHER_INCOME_URI}/${code}`);
-            dispatch(setOtherIncome(data));
+            const {data} = await payrollApi.get(`${VITE_SUSPENSION}/${code}`);
+            dispatch(setSuspension(data));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
     }
 
-    const saveOrUpdate = async (otherIncome: OtherIncomeInterface) => {
+    const saveOrUpdate = async (suspension: SuspensionInterface) => {
         try {
-            otherIncome.oinFecha = otherIncome.oinFecha.format("DD/MM/YYYY");
-            const {search, page} =  otherIncomeValues.params;
-            if (otherIncome.oinCodigo) {
-                await payrollApi.put(`${VITE_OTHER_INCOME_URI}`, otherIncome);
+            suspension.susFechaSalida = suspension.susFechaSalida.format("DD/MM/YYYY");
+            suspension.susFechaRegreso = suspension.susFechaRegreso.format("DD/MM/YYYY");
+            const {search, page} =  suspensionValues.params;
+            if (suspension.susCodigo) {
+                await payrollApi.put(`${VITE_SUSPENSION}`, suspension);
                 await Utilities.successAlarm('Registro actualizado');
                 await findAll(search, page);
-                dispatch(setOtherIncome(otherIncome));
+                dispatch(setSuspension(suspension));
                 return;
             }
 
-            const {data} = await payrollApi.post(`${VITE_OTHER_INCOME_URI}`, otherIncome);
+            const {data} = await payrollApi.post(`${VITE_SUSPENSION}`, suspension);
             await Utilities.successAlarm('Registro guardado');
             await findAll(search, page);
-            dispatch(setOtherIncome(data));
+            dispatch(setSuspension(data));
         } catch (e) {
             await Utilities.errorAlarm(e);
         }
@@ -72,15 +77,15 @@ export const useOtherIncomeStore = () => {
 
     const remove = async (code: number) => {
         try {
-            const {search, page} = otherIncomeValues.params;
+            const {search, page} = suspensionValues.params;
             const result = await Utilities.warningAlarm('¿Desea eliminar el registro?');
             if (result) {
                 return;
             }
-            await payrollApi.delete(`${VITE_OTHER_INCOME_URI}/${code}`);
+            await payrollApi.delete(`${VITE_SUSPENSION}/${code}`);
             await Utilities.successAlarm('Registro eliminado');
             await findAll(search, page);
-            if (code === otherIncomeValues.oinCodigo) {
+            if (code === suspensionValues.susCodigo) {
                 cleanForm();
             }
         } catch (e) {
@@ -89,12 +94,12 @@ export const useOtherIncomeStore = () => {
     }
 
     const cleanForm = () => {
-        dispatch(clearDataOtherIncome());
+        dispatch(clearDataSuspension());
     }
 
     const getAllEmployees = async () => {
         try {
-            const { data } = await payrollApi.get(`${VITE_OTHER_INCOME_URI}/empleados`);
+            const { data } = await payrollApi.get(`${VITE_SUSPENSION}/empleados`);
             const defaultData: EmployeeByPositionInteface[] = [{epuCodigo: 0,
                     empPrimerNombre: 'Seleccione un empleado', empSegundoNombre: "", empPrimerApellido: "", empSegundoApellido: ""}];
             setEmployeesByPosition([...defaultData, ...data]);
@@ -103,14 +108,42 @@ export const useOtherIncomeStore = () => {
         }
     }
 
+    const getAllSuspensionType = async () => {
+        try {
+            const { data } = await payrollApi.get(`${VITE_SUSPENSION}/tiposSuspension`);
+            const defaultData: SuspensionTypesInterface[] = [{
+                tsuCodigo: 0,
+                tsuNombre: 'Seleccione un tipo de ausencia'
+            }];
+            setSuspensionType([...defaultData, ...data]);
+        } catch (e) {
+            await Utilities.errorAlarm(e);
+        }
+    }
+
+    const getAllDeductionType = async () => {
+        try {
+            const { data } = await payrollApi.get(`${VITE_SUSPENSION}/tiposDeduccion`);
+            const defaultData: DeductionTypesInterface[] = [{
+                tdsCodigo: 0,
+                tdsNombre: 'Seleccione un tipo de ausencia'
+            }];
+            setDeductionType([...defaultData, ...data]);
+        } catch (e) {
+            await Utilities.errorAlarm(e);
+        }
+    }
+
     return {
-        ...otherIncomeValues,
-        otherIncomeValues,
+        ...suspensionValues,
+        suspensionValues,
         findAll,
         findById,
         saveOrUpdate,
         remove,
         cleanForm,
-        employeesByPosition
+        employeesByPosition,
+        suspensionType,
+        deductionType
     }
 }

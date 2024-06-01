@@ -9,3 +9,5 @@ export * from './extra-hour.interface.ts';
 export * from './suspension.interface.ts';
 export * from './absence.interface.ts';
 export * from './absenceTypes.interface.ts'
+export * from './suspensionTypes.interface.ts'
+export * from './deductionTypes.interface.ts'

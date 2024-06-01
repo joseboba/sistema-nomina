@@ -1,6 +1,6 @@
 import {Grid} from "@mui/material";
 import {ListComponent, TitleComponent} from "../components";
-import { SuspensionForm } from "../forms/SuspensionForm";
+import { SuspensionForm } from "../forms/SuspensionForm.tsx";
 import { useSuspensionStore } from "../../../hooks";
 
 
@@ -11,7 +11,7 @@ export const SuspensionPage = () => {
         <>
             <TitleComponent title={'Suspensiones'}/>
             <Grid container spacing={2}>
-                <Grid item xs={3}>
+                <Grid item xs={7}>
                     <ListComponent
                         {...suspensionValues.page}
                         onSelectItem={code => findById(+code)}
@@ -21,7 +21,7 @@ export const SuspensionPage = () => {
                         items={suspensionValues.items}
                     />
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={10}>
                     <SuspensionForm/>
                 </Grid>
             </Grid>

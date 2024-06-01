@@ -2,47 +2,51 @@ import {FormikValues} from "formik";
 import {FormLayout} from "../../../layout/FormLayout.tsx";
 import { CustomInputText, CustomDatePicker, CustomSelect } from "../../../components/form";
 import {} from "../../../hooks";
-import { useOtherIncomeStore } from "../../../hooks/useOtherIncomeStore.ts";
-import { otherIncomeValidationSchema } from "./validations/otherIncomeValidationSchema.ts";
+import { useSuspensionStore } from "../../../hooks/useSuspensionStore.ts";
+import { suspensionValidationSchema } from "./validations/suspensionValidationSchema.ts";
 import moment from "moment";
 import { MenuItem } from "@mui/material";
 import { Utilities } from "../../../util/utilities.ts";
 
-export const OtherIncomeForm = () => {
+export const SuspensionForm = () => {
 
 
     const {
-        oinCodigo,
+        susCodigo,
         epuCodigo,
-        oinMonto = 0,
-        oinFecha = moment().toDate(),
-        otherIncomeValues,
+        tdsCodigo,
+        tsuCodigo,
+        susFechaSalida = moment().toDate(),
+        susFechaRegreso = moment().toDate(),
+        susMotivo = "",
+        suspensionValues,
         saveOrUpdate,
         cleanForm,
-        employeesByPosition
-    } = useOtherIncomeStore();
+        employeesByPosition,
+        suspensionType,
+        deductionType
+    } = useSuspensionStore();
 
     const onClean = () => {
         cleanForm();
     }
 
     const onSubmit = async (values: FormikValues) => {
-        await saveOrUpdate({...values, oinCodigo});
+        await saveOrUpdate({...values, susCodigo});
     }
 
     const onChangeStatus = async () => {
-        await saveOrUpdate({...otherIncomeValues});
+        await saveOrUpdate({...suspensionValues});
     }
 
     return (
         <FormLayout
-            update={!!oinCodigo}
+            update={!!susCodigo}
             onSubmit={onSubmit}
-            initialValues={{oinCodigo, epuCodigo,oinMonto,oinFecha}}
-            validationSchema={otherIncomeValidationSchema}
+            initialValues={{susCodigo, epuCodigo, tdsCodigo, tsuCodigo, susFechaSalida, susFechaRegreso, susMotivo}}
+            validationSchema={suspensionValidationSchema}
             onClean={onClean}
         >
-            
             <CustomSelect label={'Empleado'} name={'epuCodigo'}>
                 {
                     employeesByPosition.map(employee => (
@@ -53,8 +57,28 @@ export const OtherIncomeForm = () => {
                     ))
                 }
             </CustomSelect>
-            <CustomInputText label={'Monto'} name={'oinMonto'}  type="number"/>
-            <CustomDatePicker label={'Fecha que se recibe el ingreso'} name={'oinFecha'} ></CustomDatePicker>
+            <CustomSelect label={'Tipo de Suspension'} name={'tsuCodigo'}>
+                {
+                    suspensionType.map(suspension => (
+                        <MenuItem key={suspension.tsuCodigo} value={suspension.tsuCodigo}>
+                            {`${suspension.tsuCodigo ? suspension.tsuCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(suspension.tsuNombre!)} `}
+                        </MenuItem>
+                    ))
+                }
+            </CustomSelect>
+            <CustomSelect label={'Tipo de deduccion'} name={'tdsCodigo'}>
+                {
+                    deductionType.map(deduction => (
+                        <MenuItem key={deduction.tdsCodigo} value={deduction.tdsCodigo}>
+                            {`${deduction.tdsCodigo ? deduction.tdsCodigo + ' -' : ""}  ${Utilities.capitalizeFirstLetter(deduction.tdsNombre!)} `}
+                        </MenuItem>
+                    ))
+                }
+            </CustomSelect>
+
+            <CustomDatePicker label={'Fecha de inicio de suspension'} name={'susFechaSalida'} ></CustomDatePicker>
+            <CustomDatePicker label={'Fecha de fin de suspension'} name={'susFechaRegreso'} ></CustomDatePicker>
+            <CustomInputText label={'Motivo'} name={'susMotivo'} type="text" />
         </FormLayout>
     )
 }

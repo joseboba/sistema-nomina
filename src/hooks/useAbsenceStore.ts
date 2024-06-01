@@ -11,7 +11,6 @@ import {
     setParamsAbsence
 } from "../store/modules/administration";
 import {Utilities} from "../util";
-import { NULL } from "sass";
 
 const {VITE_ABSENCE} = getEnvVariables();
 

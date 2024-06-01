@@ -5,14 +5,17 @@ import moment from "moment";
 
 
 const initialState: SuspensionInterface  = {
-    ausCodigo: 0,
-    tauCodigo: 0,
+    susCodigo: 0,
+    tsuCodigo: 0,
+    tdsCodigo: 0,
     epuCodigo: 0,
-    ausFechaSalida: moment(),
-    ausFechaRegreso: moment(),
+    susFechaSalida: moment(),
+    susFechaRegreso: moment(),
+    susMotivo:"",
     empCodigo: 0,
     nombreEmpleado: "",
-    nombreTipoAusencia: "",
+    nombreTipoSuspension: "",
+    nombreTipoDescuento: "",
     page: {
         hasNext: false,
         hasPrevious: false,
@@ -36,25 +39,28 @@ export const suspensionSlice = createSlice({
         setPageResultSuspension: (state, {payload}: PayloadAction<Paging<SuspensionInterface>>) => {
             state.page = payload;
             state.items = Utilities.generateItems(payload.content, {
-                itemCodeKey: 'ausCodigo',
+                itemCodeKey: 'susCodigo',
                 itemPrimaryTextKey: 'empCodigo',
                 itemSecondaryTextKey: 'nombreEmpleado',
             });
         },
         clearDataSuspension: (state) => {
-            state.ausCodigo = 0;
+            state.susCodigo = 0;
             state.epuCodigo = 0;
-            state.tauCodigo = 0;
-            state.ausFechaSalida = moment();
-            state.ausFechaRegreso = moment();
+            state.tsuCodigo = 0;
+            state.tdsCodigo = 0;
+            state.susFechaSalida = moment();
+            state.susFechaRegreso = moment();
+            state.susMotivo = ""
         },
         setSuspension: (state, {payload}: PayloadAction<SuspensionInterface>) => {
             console.log(payload);
-            state.ausCodigo = payload.ausCodigo;
+            state.susCodigo = payload.susCodigo;
             state.epuCodigo = payload.epuCodigo;
-            state.tauCodigo = payload.tauCodigo;
-            state.ausFechaSalida = moment(payload.ausFechaSalida, "DD-MM-YYYY");
-            state.ausFechaRegreso = moment(payload.ausFechaRegreso, "DD-MM-YYYY");
+            state.tsuCodigo = payload.tsuCodigo;
+            state.tdsCodigo = payload.tdsCodigo;
+            state.susFechaSalida = moment(payload.susFechaSalida, "DD-MM-YYYY");
+            state.susFechaRegreso = moment(payload.susFechaRegreso, "DD-MM-YYYY");
         },
         setParamsSuspension: (state, {payload}: PayloadAction<{search: string, page: number}>) => {
             state.params.search = payload.search;

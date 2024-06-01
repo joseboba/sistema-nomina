@@ -19,8 +19,10 @@ import {
     ProductionUploadPage,
     SaleUploadPage,
     AbsencePage,
-    SuspensionPage
-    SaleUploadPage, BankCsvPage, NominaPdfPage, PagoNominaPage
+    SuspensionPage,
+    BankCsvPage,
+    NominaPdfPage,
+    PagoNominaPage
 } from "../pages";
 import {ExtraHourPdfPage} from "../pages/ExtraHourPdfPage.tsx";
 

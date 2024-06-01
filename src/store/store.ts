@@ -13,17 +13,18 @@ import {
     positionSlice,
     suspensionTypesSlice,
     employeeBonusSlice,
-    employeeDiscountSlice, loanUploadSlice,
+    employeeDiscountSlice,
+    loanUploadSlice,
     extraHourUploadSlice,
     hoursSlice,
     productionUploadSlice,
     saleUploadSlice,
     absenceSlice,
-    suspensionSlice
-    saleUploadSlice,
+    suspensionSlice,
     bankCsvSlice,
     extraHourPdfSlice,
-    nominaPdfSlice, pagoNominaslice
+    nominaPdfSlice,
+    pagoNominaslice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -100,12 +101,11 @@ export const store = configureStore({
         productionUploadSlice: productionUploadSlice.reducer,
         saleUploadSlice: saleUploadSlice.reducer,
         absenceSlice: absenceSlice.reducer,
-        suspensionSlice: suspensionSlice.reducer
-        saleUploadSlice: saleUploadSlice.reducer,
+        suspensionSlice: suspensionSlice.reducer,
         bankCsvSlice: bankCsvSlice.reducer,
         extraHourPdfSlice: extraHourPdfSlice.reducer,
         nominaPdfSlice: nominaPdfSlice.reducer,
-        pagoNominaslice: pagoNominaslice.reducer,
+        pagoNominaslice: pagoNominaslice.reducer
     }
 });
 

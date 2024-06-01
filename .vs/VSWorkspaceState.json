@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\components\\form",
+    "\\src\\helpers",
+    "\\src\\hooks",
+    "\\src\\interfaces",
     "\\src\\modules",
     "\\src\\modules\\administration",
-    "\\src\\modules\\administration\\pages",
-    "\\src\\routes",
-    "\\src\\store",
-    "\\src\\store\\modules",
-    "\\src\\store\\modules\\administration",
-    "\\src\\ui"
+    "\\src\\modules\\administration\\forms",
+    "\\src\\modules\\administration\\forms\\validations"
   ],
-  "SelectedNode": "\\.envProd",
+  "SelectedNode": "\\src\\hooks\\useAbsenceStore.ts",
   "PreviewInSolutionExplorer": false
 }
