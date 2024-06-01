@@ -110,6 +110,16 @@ export const NAVBAR_ROUTES: SideNavType = [
                 NavIcon: Money
             },
             {
+                to: `${ADMIN_BASE_PATH}/absence`,
+                name: 'Ausencias',
+                NavIcon: Discount
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/suspension`,
+                name: 'Suspensiones',
+                NavIcon: Discount
+            },
+            {
                 to: `${ADMIN_BASE_PATH}/bank-csv`,
                 name: 'Reporte de banco',
                 NavIcon: FoodBank

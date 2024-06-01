@@ -13,11 +13,14 @@ import {
     positionSlice,
     suspensionTypesSlice,
     employeeBonusSlice,
-    employeeDiscountSlice, loanUploadSlice,
+    employeeDiscountSlice,
+    loanUploadSlice,
     extraHourUploadSlice,
     hoursSlice,
     productionUploadSlice,
     saleUploadSlice,
+    absenceSlice,
+    suspensionSlice,
     bankCsvSlice,
     extraHourPdfSlice,
     nominaPdfSlice, pagoNominaslice,
@@ -43,7 +46,9 @@ import {
     ExtraHourUploadInterface,
     HoursInterface,
     ProductionUploadInterface,
-    SaleUploadInterface
+    SaleUploadInterface,
+    AbsenceInterface,
+    SuspensionInterface
 } from "../interfaces";
 import {sidenavSlice} from "./ui";
 
@@ -69,6 +74,8 @@ export interface StoreInterface {
     extraHourUploadSlice : ExtraHourUploadInterface;
     productionUploadSlice: ProductionUploadInterface;
     saleUploadSlice: SaleUploadInterface;
+    absence: AbsenceInterface;
+    suspension: SuspensionInterface;
 }
 
 export const store = configureStore({
@@ -93,11 +100,12 @@ export const store = configureStore({
         extraHourUploadSlice : extraHourUploadSlice.reducer,
         productionUploadSlice: productionUploadSlice.reducer,
         saleUploadSlice: saleUploadSlice.reducer,
+        absence: absenceSlice.reducer,
+        suspension: suspensionSlice.reducer,
         bankCsvSlice: bankCsvSlice.reducer,
         extraHourPdfSlice: extraHourPdfSlice.reducer,
         nominaPdfSlice: nominaPdfSlice.reducer,
-        pagoNominaslice: pagoNominaslice.reducer,
-        voucherPdfSlice: voucherPdfSlice.reducer,
+        pagoNominaslice: pagoNominaslice.reducer
     }
 });
 

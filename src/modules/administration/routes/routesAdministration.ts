@@ -17,7 +17,12 @@ import {
     HoursPage,
     ExtraHourUploadPage,
     ProductionUploadPage,
-    SaleUploadPage, BankCsvPage, NominaPdfPage, PagoNominaPage
+    SaleUploadPage,
+    AbsencePage,
+    SuspensionPage,
+    BankCsvPage,
+    NominaPdfPage,
+    PagoNominaPage
 } from "../pages";
 import {ExtraHourPdfPage} from "../pages/ExtraHourPdfPage.tsx";
 import {VoucherPdfPage} from "../pages/VoucherPdfPage.tsx";
@@ -103,6 +108,14 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'sale',
         Component: SaleUploadPage
+    },
+    {
+        path: 'absence',
+        Component: AbsencePage
+    },
+    {
+        path: 'suspension',
+        Component: SuspensionPage
     },
     {
         path: 'bank-csv',

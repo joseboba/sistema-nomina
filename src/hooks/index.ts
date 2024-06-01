@@ -16,3 +16,5 @@ export * from './useLoanUploadStore.ts';
 export * from './useExtraHourUploadStore.ts';
 export * from './useProductionUploadStore.ts';
 export * from './useSaleUploadStore.ts';
+export * from './useAbsenceStore.ts';
+export * from './useSuspensionStore.ts';
