@@ -20,7 +20,8 @@ import {
     saleUploadSlice,
     bankCsvSlice,
     extraHourPdfSlice,
-    nominaPdfSlice, pagoNominaslice
+    nominaPdfSlice, pagoNominaslice,
+    voucherPdfSlice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
@@ -96,6 +97,7 @@ export const store = configureStore({
         extraHourPdfSlice: extraHourPdfSlice.reducer,
         nominaPdfSlice: nominaPdfSlice.reducer,
         pagoNominaslice: pagoNominaslice.reducer,
+        voucherPdfSlice: voucherPdfSlice.reducer,
     }
 });
 

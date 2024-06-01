@@ -20,3 +20,4 @@ export * from './SaleUploadPage.tsx';
 export * from './BankCsvPage.tsx';
 export * from './NominaPdfPage.tsx';
 export * from './PagoNominaPage.tsx';
+export * from './VoucherPdfPage.tsx';
