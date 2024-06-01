@@ -6,7 +6,8 @@ import {
     setOpenBankCsv,
     setOpenExtraHourCsv,
     setOpenNominaPdf,
-    setOpenPagoNomina
+    setOpenPagoNomina,
+    setOpenVoucherPdf
 } from "../store/modules/administration";
 
 
@@ -32,6 +33,10 @@ export const SideNavItem = ({to, name, NavIcon}: SidNavItemInterface) => {
 
         if (to.includes('pago-nomina')) {
             dispatch(setOpenPagoNomina({open: true}));
+        }
+
+        if (to.includes('voucher-pdf')) {
+            dispatch(setOpenVoucherPdf({open: true}));
         }
 
         navigate(to);

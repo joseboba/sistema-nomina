@@ -20,6 +20,7 @@ import {
     SaleUploadPage, BankCsvPage, NominaPdfPage, PagoNominaPage
 } from "../pages";
 import {ExtraHourPdfPage} from "../pages/ExtraHourPdfPage.tsx";
+import {VoucherPdfPage} from "../pages/VoucherPdfPage.tsx";
 
 
 export const routesAdministration: ModuleRoute[] = [
@@ -118,5 +119,9 @@ export const routesAdministration: ModuleRoute[] = [
     {
         path: 'pago-nomina',
         Component: PagoNominaPage
+    },
+    {
+        path: 'voucher-pdf',
+        Component: VoucherPdfPage
     }
 ];
