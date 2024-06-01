@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components\\form",
-    "\\src\\helpers",
     "\\src\\hooks",
     "\\src\\interfaces",
     "\\src\\modules",
     "\\src\\modules\\administration",
     "\\src\\modules\\administration\\forms",
-    "\\src\\modules\\administration\\forms\\validations"
+    "\\src\\modules\\administration\\forms\\validations",
+    "\\src\\modules\\administration\\pages",
+    "\\src\\modules\\administration\\routes"
   ],
-  "SelectedNode": "\\src\\hooks\\useAbsenceStore.ts",
+  "SelectedNode": "\\src\\modules\\administration\\routes\\AdministrationRoutes.tsx",
   "PreviewInSolutionExplorer": false
 }

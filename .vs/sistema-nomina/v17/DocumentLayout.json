@@ -37,6 +37,10 @@
           "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "useAbsenceStore.ts",
@@ -46,8 +50,7 @@
               "RelativeToolTip": "src\\hooks\\useAbsenceStore.ts",
               "ViewState": "AQIAAFoAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-31T09:00:49.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T09:00:49.293Z"
             },
             {
               "$type": "Document",
@@ -59,12 +62,7 @@
               "RelativeToolTip": "src\\modules\\administration\\pages\\AbsencePage.tsx",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-31T08:32:52.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2024-05-31T08:32:52.345Z"
             },
             {
               "$type": "Document",
@@ -72,12 +70,11 @@
               "Title": "SuspensionPage.tsx",
               "DocumentMoniker": "C:\\GIT\\Analisis_sistemas_I\\sistema-nomina\\src\\modules\\administration\\pages\\SuspensionPage.tsx",
               "RelativeDocumentMoniker": "src\\modules\\administration\\pages\\SuspensionPage.tsx",
-              "ToolTip": "C:\\GIT\\Analisis_sistemas_I\\sistema-nomina\\src\\modules\\administration\\pages\\SuspensionPage.tsx*",
-              "RelativeToolTip": "src\\modules\\administration\\pages\\SuspensionPage.tsx*",
+              "ToolTip": "C:\\GIT\\Analisis_sistemas_I\\sistema-nomina\\src\\modules\\administration\\pages\\SuspensionPage.tsx",
+              "RelativeToolTip": "src\\modules\\administration\\pages\\SuspensionPage.tsx",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-31T08:22:56.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T08:22:56.488Z"
             },
             {
               "$type": "Document",
@@ -89,8 +86,7 @@
               "RelativeToolTip": "src\\interfaces\\absence.interface.ts",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-31T04:16:52.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T04:16:52.366Z"
             },
             {
               "$type": "Document",
@@ -102,8 +98,7 @@
               "RelativeToolTip": "src\\interfaces\\suspension.interface.ts",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-05-31T07:34:40.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-31T07:34:40.126Z"
             },
             {
               "$type": "Document",
@@ -113,7 +108,7 @@
               "RelativeDocumentMoniker": "src\\hooks\\useSuspensionStore.ts",
               "ToolTip": "C:\\GIT\\Analisis_sistemas_I\\sistema-nomina\\src\\hooks\\useSuspensionStore.ts",
               "RelativeToolTip": "src\\hooks\\useSuspensionStore.ts",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAmAAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAACMAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-05-31T07:34:10.359Z",
               "EditorCaption": ""
