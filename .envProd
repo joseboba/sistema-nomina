@@ -28,3 +28,4 @@ VITE_BANK_CSV_URI=/api/BancoCsv
 VITE_EXTRA_HOUR_CSV=/reporte-horas-extra
 VITE_NOMINA_PDF=/nomina
 VITE_PAGO_NOMINA=/api/PagoNomina
+VITE_VOUCHER_PDF=/recibo

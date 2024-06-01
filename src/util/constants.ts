@@ -143,6 +143,11 @@ export const NAVBAR_ROUTES: SideNavType = [
                 to: `${ADMIN_BASE_PATH}/pago-nomina`,
                 name: 'Pago Nomina',
                 NavIcon: FoodBank
+            },
+            {
+                to: `${ADMIN_BASE_PATH}/voucher-pdf`,
+                name: 'Reporte de Recibo de Empleados',
+                NavIcon: FoodBank
             }
         ]
     }

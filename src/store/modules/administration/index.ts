@@ -22,4 +22,5 @@ export * from './suspensionSlice.ts';
 export * from './bankCsvSlice.ts';
 export * from './extraHourPdfSlice.ts';
 export * from './nominaPdfSlice.ts';
-export * from './pagoNominaSlice.ts'
+export * from './pagoNominaSlice.ts';
+export * from './voucherPdfSlice.ts';

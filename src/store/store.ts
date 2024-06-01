@@ -23,8 +23,8 @@ import {
     suspensionSlice,
     bankCsvSlice,
     extraHourPdfSlice,
-    nominaPdfSlice,
-    pagoNominaslice
+    nominaPdfSlice, pagoNominaslice,
+    voucherPdfSlice
 } from "./modules/administration";
 import {
     AbsenceTypeInterface,
